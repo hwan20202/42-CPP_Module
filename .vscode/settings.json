@@ -60,6 +60,12 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"iomanip": "cpp"
+		"iomanip": "cpp",
+		"__availability": "cpp",
+		"__bits": "cpp",
+		"clocale": "cpp",
+		"deque": "cpp",
+		"fstream": "cpp",
+		"stack": "cpp"
 	}
 }
