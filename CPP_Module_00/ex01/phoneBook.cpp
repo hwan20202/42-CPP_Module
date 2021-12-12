@@ -1,29 +1,53 @@
 #include "phoneBook.hpp"
-#include <iostream>
+#include <cctype>
 
-class contact
+std::string	contact::string_precision(std::string str, unsigned int precision)
 {
-private:
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickname;
-	std::string	phoneNumber;
-	std::string	darkestSecret;
-public:
-	void	cinFirstName(void);
-	void	cinLastName(void);
-	void	cinNicktname(void);
-	void	cinPhoneNumber(void);
-	void	cinDarkestSecret(void);
-	std::string	getFirstName(void);
-	std::string	getLastName(void);
-	std::string	getNickname(void);
-	std::string	getPhoneNumber(void);
-	std::string	getDarkestSecret(void);
+	if (str.size() >= precision)
+		return (str.substr(0, 9) += ".");
+	return (str);
+}
 
-	contact(void);
-	~contact(void);
-};
+void	contact::set(void)
+{
+	std::cout << "====================" << "ADD CONTACT" << "====================" << std::endl;
+	std::cout << std::left;
+	std::cout << std::setw(32) << "Please, input the first name" << " : ";
+	std::cin >> firstName;
+	std::cout << std::setw(32) << "Please, input the last name" << " : ";
+	std::cin >> lastName;
+	std::cout << std::setw(32) << "Please, input the nickname" << " : ";
+	std::cin >> nickname;
+	std::cout << std::setw(32) << "Please, input the phone number" << " : ";
+	std::cin >> phoneNumber;
+	std::cout << std::setw(32) << "Please, input the darkest secret" << " : ";
+	std::cin >> darkestSecret;
+	std::cout << "====================" << "ADD COMPLETE" << "===================" << std::endl;
+}
+
+void	contact::brief(void)
+{
+	std::setfill(' ');
+	std::cout << std::right;
+	std::cout << "|" << std::setw(10);
+	std::cout << string_precision(firstName, 10);
+	std::cout << "|" << std::setw(10);
+	std::cout << string_precision(lastName, 10);
+	std::cout << "|" << std::setw(10);
+	std::cout << string_precision(nickname, 10) << "|" << std::endl;
+}
+
+void	contact::detail(void)
+{
+	std::cout << "=================" << firstName << "'s contact" << "=================" << std::endl;
+	std::cout << std::left;
+	std::cout << std::setw(14) << "first name" << " : " << firstName << std::endl; 
+	std::cout << std::setw(14) << "last name" << " : " << lastName << std::endl;
+	std::cout << std::setw(14) << "nickname" << " : " << nickname << std::endl;
+	std::cout << std::setw(14) << "phone number" << " : " << phoneNumber << std::endl;
+	std::cout << std::setw(14) << "darkest secret" << " : " << darkestSecret << std::endl;
+	std::cout << "===================================================" << std::endl;
+}
 
 contact::contact()
 {
@@ -33,72 +57,42 @@ contact::~contact()
 {
 }
 
-class phoneBook
-{
-private:
-	std::string	cmd;
-	int cmdMode;
-	contact buf;
-	contact	contacts[8];
-public:
-	void	command(void);
-	void	modePrompt(void);
 
-	
-	phoneBook(void);
-	~phoneBook(void);
-};
-
-void	phoneBook::command(void)
+void	phoneBook::add(void)
 {
-	if (cmdMode == DEFALT)
-	{
-		if (cmd == "ADD")
-			addMode();
-		else if (cmd == "SEARCH")
-			searchMode();
-		else if (cmd == "EXIT")
-			;
-	}
-	if (cmdMode == SEARCH)
-	{
-		if (isdigit(cmd))
-			;//show contact
-		else
-			; //escape SEARCH MODE
-	}
+	latest = (latest + 1) % PHONEBOOKSIZE;
+	contacts[(latest % PHONEBOOKSIZE)].set();
+	if (size + 1 <= PHONEBOOKSIZE)
+		size++;
 }
 
-void	phoneBook::addMode(void)
+void	phoneBook::search(void)
 {
-	if (cmdMode != ADD)
-		cmdMode = ADD
-	buf.clean();
-	modePrompt();
-	buf.cinFirstName();
-	buf.cinLastName();
-	buf.cinNickname();
-	buf.cinPhoneNumber();
-	buf.cinDarkestSecret();
-	contacts.end() = buf;
-}
+	char idx;
 
-void	phoneBook::searchMode(void)
-{
-	for (int i = 0; i < size; i++) // get first
+	std::cout << "===================" << "CONTACT BRIEF" << "==================" << std::endl;
+	std::cout << std::right << "|" << std::setfill(' ') << std::setw(10) << "index" << "|"
+				<< std::setw(10) << "first name" << "|"
+				<< std::setw(10) << "last name" << "|" 
+				<< std::setw(10) << "nickname" << "|" << std::endl;
+	for (int i = 0; i < size; i++)
 	{
-		std::cout << "|" << contacts[(first + i) % 8].getFirstName(); //briefly
-		std::cout << "|" << contacts[(first + i) % 8].getLastName(); //briefly
-		std::cout << "|" << contacts[(first + i) % 8].getNickname(); //briefly
-		std::cout << "|" << contacts[(first + i) % 8].getPhoneNumber(); //briefly
-		std::cout << "|" << contacts[(first + i) % 8].getDarkestSecret(); //briefly
-		std::cout << "|" << std::endl;
+		std::cout << std::right << "|" << std::setw(10) << i + 1;
+		contacts[(latest + size + 1 + i) % size].brief();
 	}
-
+	std::cout << "===================================================" << std::endl;
+	std::cout << "Select the contact you want to see in detail : ";
+	std::cin >> idx;
+	if (idx > '0' && idx <= size + '0')
+		contacts[(latest + size + idx - '0') % size].detail();
+	else
+		std::cout << "wrong input" << std::endl;
 }
 
-phoneBook::phoneBook(/* args */)
+phoneBook::phoneBook()
 {
+	size = 0;
+	latest = -1;
 }
 
 phoneBook::~phoneBook()
