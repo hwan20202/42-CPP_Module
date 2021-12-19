@@ -1,26 +1,15 @@
 #include <iostream>
+#include <bitset>
+#include <cmath>
 
 int main(void)
 {
-	int count;
+	int num = 1;
+    int num2;
 
-	count = 1;
-	std::string s;
-	while (1)
-	{
-		std::cin >> s;
-		if (std::cin.eof())
-		{
-			std::cout << "cin eof." << std::endl;
-			std::cout << s << std::endl;
-			break ;
-		}
-		if (std::cin.fail())
-		{
-			std::cout << "cin fail." << std::endl;
-			break ;
-		}
-		std::cout << count++ << s <<std::endl;
-	}
+    std::cout << std::bitset<32>(num) << std::endl;
+    num2 = num << 8;
+    std::cout << std::bitset<32>(num2) << std::endl;
+	
 	return (0);
 }

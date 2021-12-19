@@ -17,7 +17,7 @@ void    Zombie::announce(void)
 }
 Zombie::Zombie(void)
 {
-
+    std::cout << "Zombie created" << std::endl;
 }
 Zombie::Zombie(std::string name)
 {

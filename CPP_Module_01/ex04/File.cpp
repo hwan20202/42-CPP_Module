@@ -1,7 +1,6 @@
 #include "File.hpp"
 #include <iostream>
 #include <fstream>
-// #include <string>
 
 #define ERROR 1
 
@@ -22,13 +21,8 @@ int File::replace(std::string &fileName, std::string &s1, std::string &s2)
         if (buf.find(s1) != std::string::npos)
             buf.replace(buf.find(s1), s1.length(), s2);
         f2 << buf << std::endl;
-    }
-    
+    }    
     return (0);
-    // file read
-    //replace
-
-    //cout
 }
 
 File::File(void)

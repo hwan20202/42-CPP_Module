@@ -11,7 +11,7 @@ int main(void)
 				<< "[SEARCH] : search the contact to find" << std::endl;
 	while (true)
 	{
-		std::getline(std::cin, line);
+		std::cin >> line;
 		if (std::cin.eof() || std::cin.fail() || line == "EXIT")
 			break ;
 		if (line == "ADD")
@@ -21,6 +21,6 @@ int main(void)
 		else
 			std::cout << "command that doesn't exist" << std::endl;
 	}
-	std::cout << "program has exited." << std::endl;
+	std::cout << line << " : program has exited." << std::endl;
 	return (0);
 }
