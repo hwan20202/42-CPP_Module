@@ -4,39 +4,31 @@
 #include <iostream>
 #include <iomanip>
 
-#define	PHONEBOOKSIZE 8
+#include "contact.hpp"
 
-class contact
-{
-private:
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickname;
-	std::string	phoneNumber;
-	std::string	darkestSecret;
-
-	std::string	string_precision(std::string s, unsigned int precision);
-public:
-	void	set(void);
-	void	brief(void);
-	void	detail(void);
-
-	contact(void);
-	~contact(void);
-};
+#define	PHONEBOOKSIZE	8
+#define WIDTH			60
 
 class phoneBook
 {
 private:
 	int		size;
 	int		latest;
+	int		width;
 	contact	contacts[PHONEBOOKSIZE];
+
+	void	title(std::string content);
+	void	termAndDescribtion(int termSize, std::string term, std::string describ);
+	void	briefTable(void);
+	int		add(void);
+	int		search(void);
+
 public:
-	void	add(void);
-	void	search(void);
+	int		run(void);
 
 	phoneBook(void);
 	~phoneBook(void);
 };
+
 
 #endif

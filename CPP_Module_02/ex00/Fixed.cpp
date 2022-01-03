@@ -1,38 +1,39 @@
-#include <Fixed.hpp>
+#include "Fixed.hpp"
 
-const int   fraction = 8;
+/*================================static member variable================================*/
 
-int     Fixed::getRawBits(void) const
-{
-    return (_rawBits);
+int const   Fixed::mFractionalBits = 8;
+
+/*================================member method================================*/
+
+int		Fixed::getRawBits(void) const {
+    std::cout << "getRawBits member function called" << std::endl;
+    return mRawBits;
 }
 
-void    Fixed::setRawBits(int num)
-{
-    _rawBits = num << fraction;
+void	Fixed::setRawBits(int num) {
+    std::cout << "setRawBits member function called" << std::endl;
+    mRawBits = num;
 }
 
-Fixed::Fixed(void)
-{
-    _rawBits = 0;
-    std::cout << "Default Constructor called." << std::endl;
+/*================================orthodox canonical form================================*/
+
+Fixed::Fixed(void): mRawBits(0) {
+    std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& obj)
-{
-    std::cout << "Copy Constructor called." << std::endl;
+Fixed::Fixed(Fixed const & obj) {
+    std::cout << "Copy constructor called" << std::endl;
     *this = obj;
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called." << std::endl;
+Fixed::~Fixed(void ) {
+    std::cout << "Destructor called" << std::endl;
 }
 
-Fixed& Fixed::operator=(const Fixed& obj)
-{
+Fixed& Fixed::operator=(const Fixed& obj) {
     std::cout << "Assignation operator called" << std::endl;
     if (this != &obj)
-        _rawBits = obj.getRawBits();
-    return (*this);
+        mRawBits = obj.getRawBits();
+    return *this;
 }

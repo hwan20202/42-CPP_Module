@@ -1,11 +1,13 @@
 #include "Point.hpp"
 
-bool    Point::bsp(const Point &t1, const Point &t2, const Point &t3, const Point &p)
-{
-    Fixed a, b, c;
-    a = cross(Point(t2 - t1), Point(p - t2)); //t1t2 t2p
-    b = cross(Point(t3 - t2), Point(p - t3)); //t2t3 t3p
-    c = cross(Point(t1 - t3), Point(p - t1)); //t3t1 v1p
-    return ((a < 0 && b < 0 && c < 0)
-            || (a > 0 && b > 0 && c > 0));
+bool    Point::bsp(Point const a, Point const b, Point const c, Point const point) {
+	Fixed	op1;
+	Fixed	op2;
+	Fixed	op3;
+
+	op1 = cross(Point(b - a), Point(point - b)); //ab bp
+	op2 = cross(Point(c - b), Point(point - c)); //bc cp
+	op3 = cross(Point(a - c), Point(point - a)); //ca ap
+	return ((op1 < 0 && op2 < 0 && op3 < 0)
+			|| (op1 > 0 && op2 > 0 && op3 > 0));
 }

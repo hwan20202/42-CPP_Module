@@ -1,15 +1,11 @@
 #include <iostream>
-#include <bitset>
-#include <cmath>
+#include <vector>
 
 int main(void)
 {
-	int num = 1;
-    int num2;
+	std::vector<int> a;
 
-    std::cout << std::bitset<32>(num) << std::endl;
-    num2 = num << 8;
-    std::cout << std::bitset<32>(num2) << std::endl;
-	
+    a.push_back(1);
+    // a.at(2);
 	return (0);
 }

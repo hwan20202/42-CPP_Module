@@ -2,20 +2,22 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
 private:
-    int                 _rawBits;
-    static const int    fraction;
-public:
-    int     getRawBits(void) const;
-    void    setRawBits(int num);
-    Fixed(void);
-    ~Fixed();
-    Fixed(const Fixed& obj);
-    Fixed& operator=(const Fixed& obj);
-};
+	int					mRawBits;
+	static int const	mFractionalBits;
 
+public:
+	int		getRawBits(void) const;
+	void	setRawBits(int const num);
+
+	Fixed(void);
+	~Fixed(void);
+	Fixed(Fixed const & obj);
+	Fixed& operator=(Fixed const & obj);
+};
 
 #endif

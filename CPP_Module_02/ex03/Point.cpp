@@ -1,40 +1,57 @@
 #include "Point.hpp"
 
-Fixed   Point::cross(Point &v1, Point &v2) const
-{
-    return ((v1.getX() * v2.getY()) - ((v1.getY()) * (v2.getX())));
+/***********************/
+/*private member method*/
+/***********************/
+Fixed	Point::cross(Point v1, Point v2) {
+	return (v1.getX() * v2.getY()) - ((v1.getY()) * (v2.getX()));
 }
-Fixed   &Point::getX(void) const
-{
-    return (x);
-}
-Fixed   &Point::getY(void) const
-{
-    return (y);
-}
-Point::Point(void):x(0), y(0)
-{
 
+/**********************/
+/*public member method*/
+/**********************/
+Fixed	Point::getX(void) const {
+	return x;
 }
-Point::Point(const float _x, const float _y):x(_x), y(_y)
-{
 
+Fixed	Point::getY(void) const {
+	return y;
 }
-Point::Point(const Point &obj)
-{
+
+/*************************/
+/*orthodox canonical form*/
+/*************************/
+Point::Point(void): x(0), y(0) {
+    std::cout << "Point default constructor called" << std::endl;
+}
+
+Point::Point(const float _x, const float _y): x(_x), y(_y) {
+	std::cout << "Float parameter constructor called" << std::endl;
+}
+
+Point::Point(Fixed const & _x, Fixed const & _y) :x(_x.toFloat()), y(_y.toFloat()) {
+    std::cout << "Fixed parameter constructor called" << std::endl;
+}
+
+Point::Point(const Point &obj) {
+	std::cout << "Copy constructor called" << std::endl;
     *this = obj;
 }
-Point::~Point()
-{
-    std::cout << "destructor called" << std::endl;
+
+Point::~Point() {
+    std::cout << "Destructor called" << std::endl;
 }
-Point   &Point::operator = (const Point &obj)
-{
-    this->x = obj.getX();
-    this->y = obj.getY();
-    return (*this);
+
+/**********************/
+/*operator overloading*/
+/**********************/
+Point   &Point::operator=(Point const & obj) {
+	std::cout << "Assignation operator called" << std::endl;
+    const_cast< Fixed& >(x) = obj.getX();
+    const_cast< Fixed& >(y) = obj.getY();
+    return *this;
 }
-Point   Point::operator - (const Point &obj)
-{
-    return (Point(this->getX() - obj.getX(), this->getY() - obj.getY()));
+
+Point   Point::operator-(Point const & obj) const {
+    return Point(this->getX() - obj.getX(), this->getY() - obj.getY());
 }
