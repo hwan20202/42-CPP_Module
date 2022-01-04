@@ -1,12 +1,20 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
-std::string	contact::string_precision(std::string str, unsigned int precision) {
+/************************************/
+/*			private method			*/
+/************************************/
+
+std::string	Contact::string_precision(std::string str, unsigned int precision) {
 	if (str.size() >= precision)
 		return str.substr(0, 9) += ".";
 	return str;
 }
 
-int		contact::set(void) {
+/************************************/
+/*			public method			*/
+/************************************/
+
+int			Contact::set(void) {
 	std::string		msg[5] = { "Input the first name",
 								"Input the last name",
 								"Input the nickname",
@@ -28,7 +36,7 @@ int		contact::set(void) {
 	return 0;
 }
 
-void	contact::brief(void)
+void		Contact::brief(void)
 {
 	std::setfill(' ');
 	std::cout << std::right;
@@ -40,7 +48,7 @@ void	contact::brief(void)
 	std::cout << string_precision(nickname, 10) << "|" << std::endl;
 }
 
-void	contact::detail(void) {
+void		Contact::detail(void) {
 	std::cout << std::left;
 	std::cout << std::setw(14) << "first name" << " : " << firstName << std::endl; 
 	std::cout << std::setw(14) << "last name" << " : " << lastName << std::endl;
@@ -49,10 +57,14 @@ void	contact::detail(void) {
 	std::cout << std::setw(14) << "darkest secret" << " : " << darkestSecret << std::endl;
 }
 
-contact::contact() {
+/************************************/
+/*	  constructor and destructor	*/
+/************************************/
+
+Contact::Contact() {
 
 }
 
-contact::~contact() {
+Contact::~Contact() {
+	
 }
-

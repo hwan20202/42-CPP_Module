@@ -4,8 +4,7 @@
 #include <iostream>
 #include <iomanip>
 
-class contact
-{
+class Contact {
 private:
 	std::string	firstName;
 	std::string	lastName;
@@ -19,8 +18,8 @@ public:
 	void	brief(void);
 	void	detail(void);
 
-	contact(void);
-	~contact(void);
+	Contact(void);
+	~Contact(void);
 };
 
 #endif

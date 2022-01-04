@@ -8,7 +8,7 @@ std::string const & Weapon::getType(void) const {
 	return (mType);
 }
 
-void    Weapon::setType(std::string type) {
+void    Weapon::setType(std::string const type) {
 	mType = type;
 }
 
@@ -20,7 +20,7 @@ Weapon::Weapon(void) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Weapon::Weapon(std::string type): mType(type) {
+Weapon::Weapon(std::string const type): mType(type) {
     std::cout << "Initialized constructor called" << std::endl;
 }
 Weapon::~Weapon(void) {

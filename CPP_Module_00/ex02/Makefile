@@ -1,9 +1,9 @@
 NAME	=	test
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
-SRCS	=	test.cpp\
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+SRCS	=	tests.cpp\
 			Account.cpp
-OBJS	=	test.o\
+OBJS	=	tests.o\
 			Account.o
 
 .cpp.o	:

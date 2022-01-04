@@ -1,7 +1,6 @@
 #include "Zombie.hpp"
 
-int main(void)
-{
+int main(void) {
 	Zombie z1("z1");
 	z1.announce();
 

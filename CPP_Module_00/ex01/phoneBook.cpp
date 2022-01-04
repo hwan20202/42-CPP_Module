@@ -1,8 +1,42 @@
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 #include <cctype>
 
-int		phoneBook::add(void)
-{
+/************************************/
+/*			public method			*/
+/************************************/
+
+int		PhoneBook::run(void) {
+	std::string line;
+
+	title("<< phoneBook has been run >>");
+	std::cout << "you can use following command" << std::endl;
+	title("<< COMMAND >>");
+	termAndDescribtion(8, "[ADD]", "Adding contact to phone book");
+	termAndDescribtion(8, "[SEARCH]", "Briefing contacts and select the one you want to see in detail");
+	title("");
+	while (true) {
+		std::cout << "COMMAND > ";
+		std::cin >> line;
+		if (std::cin.eof() || std::cin.fail() || line == "EXIT")
+			break ;
+		if (line == "ADD") {
+			if (add())
+				return 1;
+		} else if (line == "SEARCH") {
+			if (search())
+				return 1;
+		} else
+			std::cout << "command that doesn't exist" << std::endl;
+	}
+	std::cout << line << " : program has exited." << std::endl;
+	return 0;
+}
+
+/************************************/
+/*			private method			*/
+/************************************/
+
+int		PhoneBook::add(void) {
 	title("<< Adding Contact >>");
 	latest = (latest + 1) % PHONEBOOKSIZE;
 	if (contacts[(latest % PHONEBOOKSIZE)].set())
@@ -13,8 +47,7 @@ int		phoneBook::add(void)
 	return 0;
 }
 
-int		phoneBook::search(void)
-{
+int		PhoneBook::search(void) {
 	char idx;
 
 	title("<< Searching Contact >>");
@@ -35,36 +68,7 @@ int		phoneBook::search(void)
 	return 0;
 }
 
-
-int		phoneBook::run(void) {
-	std::string line;
-
-	title("<< phoneBook has been run >>");
-	std::cout << "you can use following command" << std::endl;
-	title("<< COMMAND >>");
-	termAndDescribtion(8, "[ADD]", "Adding contact to phone book");
-	termAndDescribtion(8, "[SEARCH]", "Briefing contacts and select the one you want to see in detail");
-	title("");
-	while (true)
-	{
-		std::cout << "COMMAND > ";
-		std::cin >> line;
-		if (std::cin.eof() || std::cin.fail() || line == "EXIT")
-			break ;
-		if (line == "ADD") {
-			if (add())
-				return 1;
-		} else if (line == "SEARCH") {
-			if (search())
-				return 1;
-		} else
-			std::cout << "command that doesn't exist" << std::endl;
-	}
-	std::cout << line << " : program has exited." << std::endl;
-	return 0;
-}
-
-void	phoneBook::title(std::string content) {
+void	PhoneBook::title(std::string content) {
 	for (unsigned long i = 0; i < (width - content.size()) / 2; i++)
 		std::cout << "=";
 	std::cout << content;
@@ -73,12 +77,12 @@ void	phoneBook::title(std::string content) {
 	std::cout << std::endl;
 }
 
-void	phoneBook::termAndDescribtion(int termSize, std::string term, std::string describ) {
+void	PhoneBook::termAndDescribtion(int termSize, std::string term, std::string describ) {
 	std::cout << std::left << std::setw(termSize)
 				<< term << " : " << describ << std::endl;
 }
 
-void	phoneBook::briefTable(void) {
+void	PhoneBook::briefTable(void) {
 	std::cout << std::right << "|" << std::setfill(' ')
 				<< std::setw(10) << "index" << "|"
 				<< std::setw(10) << "first name" << "|"
@@ -90,14 +94,16 @@ void	phoneBook::briefTable(void) {
 	}
 }
 
-phoneBook::phoneBook()
-{
+/************************************/
+/*	  constructor and destructor	*/
+/************************************/
+
+PhoneBook::PhoneBook() {
 	size = 0;
 	latest = -1;
 	width = WIDTH;
 }
 
-phoneBook::~phoneBook()
-{
+PhoneBook::~PhoneBook() {
+	
 }
-
