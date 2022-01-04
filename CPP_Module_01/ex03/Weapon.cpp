@@ -1,25 +1,28 @@
 #include "Weapon.hpp"
 
-const std::string& Weapon::getType(void)
-{
-    return (_type);
-} // return value is const, so that cannot be changed
+/********************************************/
+/*				member method				*/
+/********************************************/
 
-void    Weapon::setType(std::string type)
-{
-    _type = type;
+std::string const & Weapon::getType(void) const {
+	return (mType);
 }
 
-
-Weapon::Weapon(void)
-{
-    
+void    Weapon::setType(std::string type) {
+	mType = type;
 }
-Weapon::Weapon(std::string type)
-{
-    _type = type;
-}
-Weapon::~Weapon(void)
-{
 
+/********************************************/
+/*		constructor and destructor 			*/
+/********************************************/
+
+Weapon::Weapon(void) {
+    std::cout << "Default constructor called" << std::endl;
+}
+
+Weapon::Weapon(std::string type): mType(type) {
+    std::cout << "Initialized constructor called" << std::endl;
+}
+Weapon::~Weapon(void) {
+	std::cout << "Destructor called" << std::endl;
 }

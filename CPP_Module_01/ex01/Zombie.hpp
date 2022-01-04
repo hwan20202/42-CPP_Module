@@ -3,19 +3,18 @@
 
 #include <iostream>
 
-class Zombie
-{
+class Zombie {
 private:
-    std::string _name;
-    
-    Zombie(void);
+    std::string mName;
 
 public:
-    static Zombie *newZombie(std::string name);
-    static void    randomChump(std::string name);
-    void    announce(void);
-    static Zombie* zombieHorde( int N, std::string name );
+    void            announce(void) const;
 
+    static Zombie   *newZombie(std::string name);
+    static void     randomChump(std::string name);
+    static Zombie   *zombieHorde(int N, std::string name);
+
+    Zombie(void);
     Zombie(std::string name);
     ~Zombie(void);
 };

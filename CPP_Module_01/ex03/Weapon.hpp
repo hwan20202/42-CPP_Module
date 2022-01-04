@@ -3,13 +3,11 @@
 
 #include <iostream>
 
-class Weapon
-{
+class Weapon {
 private:
-    std::string _type;
-
+    std::string mType;
 public:
-    const std::string& getType(void); // return value is const, so that cannot be changed
+    std::string const & getType(void) const;
     void setType(std::string type);
 
     Weapon(void);

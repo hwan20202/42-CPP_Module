@@ -4,11 +4,10 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-class HumanA
-{
+class HumanA {
 private:
-    std::string _name;
-    Weapon &_weapon;
+	std::string	mName;
+	Weapon		&mWeapon;
 
 public:
     void attack(void);
