@@ -4,11 +4,11 @@
 #include <iostream>
 #include <cmath>
 
-class Fixed
-{
+class Fixed {
 private:
-	int					mRawBits;
 	static int const	mFractionalBits;
+	
+	int					mRawBits;
 
 public:
 	int		getRawBits(void) const;
@@ -17,7 +17,8 @@ public:
 	Fixed(void);
 	~Fixed(void);
 	Fixed(Fixed const & obj);
-	Fixed& operator=(Fixed const & obj);
+	
+	Fixed	&operator=(Fixed const & obj);
 };
 
 #endif

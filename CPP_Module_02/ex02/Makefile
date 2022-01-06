@@ -1,6 +1,6 @@
 NAME	=	fixed
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CC		=	clang++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	Fixed.cpp\
 			main.cpp
 OBJS	=	Fixed.o\

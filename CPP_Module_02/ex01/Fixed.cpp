@@ -1,10 +1,15 @@
 #include "Fixed.hpp"
+#include <cmath>
 
-/*================================static member================================*/
+/************************************/
+/*      static member variable      */
+/************************************/
 
 int const   Fixed::mFractionalBits = 8;
 
-/*================================nonstatic member================================*/
+/************************************/
+/*       public member method       */
+/************************************/
 
 int		Fixed::getRawBits(void) const {
     std::cout << "getRawBits member function called" << std::endl;
@@ -24,7 +29,9 @@ float	Fixed::toFloat(void) const {
 	return (float)mRawBits / (1 << mFractionalBits);
 }
 
-/*================================orthodox canonical form================================*/
+/************************************/
+/*     orthodox canonical form      */
+/************************************/
 
 Fixed::Fixed(void): mRawBits(0) {
     std::cout << "Default constructor called" << std::endl;
@@ -35,6 +42,17 @@ Fixed::Fixed(Fixed const & obj) {
     *this = obj;
 }
 
+Fixed& Fixed::operator=(const Fixed& obj) {
+    std::cout << "Assignation operator called" << std::endl;
+    if (this != &obj)
+        mRawBits = obj.getRawBits();
+    return *this;
+}
+
+Fixed::~Fixed(void ) {
+    std::cout << "Destructor called" << std::endl;
+}
+
 Fixed::Fixed(int const num): mRawBits(num << mFractionalBits) {
 	std::cout << "Int constructor called" << std::endl;
 }
@@ -43,18 +61,9 @@ Fixed::Fixed(float const num): mRawBits(roundf(num * (1 << mFractionalBits))){
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::~Fixed(void ) {
-    std::cout << "Destructor called" << std::endl;
-}
-
-/*================================operator overload================================*/
-
-Fixed& Fixed::operator=(const Fixed& obj) {
-    std::cout << "Assignation operator called" << std::endl;
-    if (this != &obj)
-        mRawBits = obj.getRawBits();
-    return *this;
-}
+/************************************/
+/*      operator overloading        */
+/************************************/
 
 std::ostream& operator<<(std::ostream& out, Fixed const & _fixed) {
 	out << _fixed.toFloat();
