@@ -4,20 +4,20 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-class Point
-{
+class Point {
 private:
 	Fixed const	x;
 	Fixed const	y;
 
-	static Fixed	cross(Point v1, Point v2);
+	static Fixed	cross(Point const v1, Point const v2);
+
 public:
+	static bool	bsp(Point const a, Point const b, Point const c, Point const point);
+
 	Fixed	getX(void) const;
 	Fixed	getY(void) const;
 	Point&	operator=(Point const & obj);
 	Point	operator-(Point const & obj) const;
-
-	static bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 	Point(void);
 	Point(float const _x, float const _y);
