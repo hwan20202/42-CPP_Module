@@ -1,10 +1,8 @@
 NAME	=	a.out
-CC		=	c++
+CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror
-SRCS	=	main.cpp\
-			File.cpp
-OBJS	=	main.o\
-			File.o
+SRCS	=	main.cpp
+OBJS	=	main.o
 
 .cpp.o	:
 	$(CC) $(CFLAGS)	-c $< -o $@

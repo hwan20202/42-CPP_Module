@@ -1,4 +1,31 @@
-#include "File.hpp"
+#include <iostream>
+#include <fstream>
+
+int replace(std::string &fileName, std::string &s1, std::string &s2) {
+	std::ifstream	f1(fileName);
+	std::ofstream	f2;
+	std::string		buf;
+
+    if (s1.empty() || s2.empty())
+        return -1;
+	if (!f1.is_open()) {
+		std::cout << "open failed!" << std::endl;
+		return -1;
+	}
+	std::cout << "open success!" << std::endl;
+	f2.open(fileName + ".replace");
+	while (std::getline(f1, buf)) {
+		int pos;
+		for (int i = 0; buf.find(s1, i) != std::string::npos;) {
+            pos = buf.find(s1, i);
+			buf.erase(pos, s1.size());
+			buf.insert(pos, s2);
+			i += s2.size();
+		}
+		f2 << buf << std::endl;
+	}
+	return 0;
+}
 
 int main(int argc, char **argv)
 {
@@ -14,6 +41,6 @@ int main(int argc, char **argv)
     }
     else
         return (0);
-    File::replace(fileName, s1, s2);
+    replace(fileName, s1, s2);
     return (0);
 }

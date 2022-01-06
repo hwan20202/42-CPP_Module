@@ -1,11 +1,11 @@
 #include <iostream>
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
-	phoneBook	pb;
+	PhoneBook	pb;
 
 	if (pb.run())
 		std::cout << "ERROR" << std::endl;
-	return (0);
+	return 0;
 }

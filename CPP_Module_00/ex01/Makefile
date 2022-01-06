@@ -1,12 +1,12 @@
 NAME	=	phonebook
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	main.cpp\
-			phoneBook.cpp\
-			contact.cpp
+			PhoneBook.cpp\
+			Contact.cpp
 OBJS	=	main.o\
-			phoneBook.o\
-			contact.o
+			PhoneBook.o\
+			Contact.o
 
 .cpp.o	:
 	$(CC) $(CFLAGS)	-c $< -o $@

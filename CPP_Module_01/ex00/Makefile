@@ -1,6 +1,6 @@
 NAME	=	zombie
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CC		=	clang++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	Zombie.cpp\
 			main.cpp
 OBJS	=	Zombie.o\
