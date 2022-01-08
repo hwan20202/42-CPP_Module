@@ -2,9 +2,13 @@ NAME	=	zombiehorde
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	Zombie.cpp\
+			newZombie.cpp\
+			randomChump.cpp\
 			ZombieHorde.cpp\
 			main.cpp
 OBJS	=	Zombie.o\
+			newZombie.o\
+			randomChump.o\
 			ZombieHorde.o\
 			main.o
 

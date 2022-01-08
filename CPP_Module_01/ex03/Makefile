@@ -1,6 +1,6 @@
 NAME	=	a.out
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CC		=	clang++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	main.cpp\
 			HumanA.cpp\
 			HumanB.cpp\

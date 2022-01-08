@@ -1,23 +1,7 @@
 #include "Zombie.hpp"
 
 /********************************************/
-/*			static member method			*/
-/********************************************/
-
-Zombie	*Zombie::newZombie(std::string name) {
-	Zombie *z = new Zombie(name);
-
-	return z;
-}
-
-void	Zombie::randomChump(std::string name) {
-	Zombie z(name);
-
-	z.announce();
-}
-
-/********************************************/
-/*			nonstatic member method			*/
+/*			public member method			*/
 /********************************************/
 
 void	Zombie::announce(void) const {

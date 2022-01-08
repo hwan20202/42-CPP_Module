@@ -1,9 +1,13 @@
 #include "Karen.hpp"
+#include <iostream>
 
-int main(void)
-{
-    Karen k;
+int main(int argc, char **argv) {
+	Karen k;
 
-    k.complain("warning");
-    return (0);
+	if (argc != 2) {
+		std::cout << "input argument" << std::endl;
+		return 1;
+	}
+	k.complain(argv[1]);
+	return 0;
 }

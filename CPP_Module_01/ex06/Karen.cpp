@@ -1,122 +1,63 @@
 #include "Karen.hpp"
 #include <iostream>
 
-class   myPair
-{
-private:
-    std::string funcName;
-    void        (Karen::*func)();
-public:
-    bool compare(std::string s);
-    void callFunc(Karen *obj);
-    myPair(std::string name, void (Karen::*f)());
-    ~myPair(void);
-};
+std::string	Karen::funcMap[MSGCOUNT + 1] = { "debug", "info", "warning", "error", "insignificant" };
 
-bool myPair::compare(std::string s)
-{
-    if (funcName == s)
-        return (true);
-    return (false);
-}
-void myPair::callFunc(Karen *obj)
-{
-    (obj->*func)();
-}
-myPair::myPair(std::string name, void (Karen::*f)())
-{
-    funcName = name;
-    func = f;
-}
-myPair::~myPair(void)
-{
-
+void	Karen::debug(void) {
+	std::cout << "[DEBUG]" << std::endl
+				<< "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger."
+				<< std::endl << "I just love it!" << std::endl;
 }
 
-class   myArray
-{
-private:
-    unsigned int _size;
-    myPair *_arr;
+void    Karen::info(void) {
+	std::cout << "[INFO]" << std::endl
+				<< "I cannot believe adding extra bacon cost more money. You don’t put enough!"
+				<< std::endl << "If you did I would not have to ask for it!" << std::endl;
+}
 
-public:
-    int find(std::string s);
-    myPair  &at(unsigned int idx);
-    myArray(unsigned int size, myPair *arr);
-    ~myArray();
-};
+void	Karen::warning(void) {
+	std::cout << "[WARNING]" << std::endl
+				<< "I think I deserve to have some extra bacon for free." << std::endl
+				<< "I’ve been coming here for years and you just started working here last month." << std::endl;
+}
 
-int myArray::find(std::string s)
-{
-    for(int i = 0; i < _size; i++)
-    {
-        if (_arr[i].compare(s))
-            return (i);
-    }
-    return (-1);
+void	Karen::error(void) {
+	std::cout << "[ERROR]" << std::endl
+				<< "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
-myPair  &myArray::at(unsigned int idx)
-{
-    return (_arr[idx]);
+
+void	Karen::insignificant(void) {
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
-myArray::myArray(unsigned int size, myPair *arr)
-{
-    _size = size;
-    _arr = arr;
+
+void	Karen::complain(std::string level) {
+	int idx = 0;
+
+	while (idx < MSGCOUNT + 1) {
+		if (funcMap[idx] == level)
+			break;
+		idx++;
+	}
+	
+	switch(idx) {
+		case 0:
+			debug();
+		case 1:
+			info();
+		case 2:
+			warning();
+		case 3:
+			error();
+			break ;
+		default:
+			insignificant();
+	}
 }
-myArray::~myArray()
-{
+
+Karen::Karen(void) {
 
 }
 
-void    Karen::debug(void)
-{
-    std::cout << "debug" << std::endl;
-}
-void    Karen::info(void)
-{
-    std::cout << "info" << std::endl;
-}
-void    Karen::warning(void)
-{
-    std::cout << "warning" << std::endl;
-}
-void    Karen::error(void)
-{
-    std::cout << "error" << std::endl;
-}
-void    Karen::complain(std::string level)
-{
-    myPair   tmp[4] = {
-        myPair("debug", &Karen::debug),
-        myPair("info", &Karen::info),
-        myPair("warning", &Karen::warning),
-        myPair("error", &Karen::error)
-    };
-    myArray    arr(4, tmp);
-    int Num = arr.find(level);
-
-    switch(Num)
-    {
-        case 0:
-            arr.at(0).callFunc(this);
-        case 1:
-            arr.at(1).callFunc(this);
-        case 2:
-            arr.at(2).callFunc(this);
-        case 3:
-            arr.at(3).callFunc(this);
-            break ;
-        default:
-            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-    }
-}
-
-Karen::Karen(void)
-{
-
-}
-Karen::~Karen(void)
-{
+Karen::~Karen(void) {
 
 }

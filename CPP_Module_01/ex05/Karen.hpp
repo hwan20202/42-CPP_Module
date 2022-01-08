@@ -1,10 +1,9 @@
 #ifndef KAREN_HPP
 #define KAREN_HPP
 
-#include <iostream>
+#include <string>
 
-class Karen
-{
+class Karen {
 private:
     void    debug(void);
     void    info(void);
@@ -17,5 +16,11 @@ public:
     Karen(void);
     ~Karen(void);
 };
+
+typedef struct  s_compass
+{
+    std::string funcName;
+    void        (Karen::*f)();
+}               t_compass;
 
 #endif

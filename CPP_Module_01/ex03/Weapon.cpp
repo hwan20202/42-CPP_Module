@@ -1,7 +1,7 @@
 #include "Weapon.hpp"
 
 /********************************************/
-/*				member method				*/
+/*			public member method			*/
 /********************************************/
 
 std::string const & Weapon::getType(void) const {
