@@ -1,6 +1,10 @@
 #include "Karen.hpp"
 #include <iostream>
 
+/************************************/
+/*			private method			*/
+/************************************/
+
 void	Karen::debug(void) {
 	std::cout << "[DEBUG]" << std::endl
 				<< "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger."
@@ -24,6 +28,10 @@ void	Karen::error(void) {
 				<< "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
+/************************************/
+/*			public method			*/
+/************************************/
+
 void	Karen::complain(std::string level) {
 	t_compass	arr[4] = {
 		{"debug", &Karen::debug},
@@ -40,6 +48,10 @@ void	Karen::complain(std::string level) {
 	}
 	std::cout << "no fucntion" << std::endl;
 }
+
+/************************************/
+/*	  constructor and destructor	*/
+/************************************/
 
 Karen::Karen(void) {
 

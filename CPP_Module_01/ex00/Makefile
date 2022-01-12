@@ -2,8 +2,12 @@ NAME	=	zombie
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	Zombie.cpp\
+			newZombie.cpp\
+			randomChump.cpp\
 			main.cpp
 OBJS	=	Zombie.o\
+			newZombie.o\
+			randomChump.o\
 			main.o
 
 .cpp.o	:

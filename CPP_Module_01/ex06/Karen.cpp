@@ -1,6 +1,10 @@
 #include "Karen.hpp"
 #include <iostream>
 
+/************************************/
+/*			private method			*/
+/************************************/
+
 std::string	Karen::funcMap[MSGCOUNT + 1] = { "debug", "info", "warning", "error", "insignificant" };
 
 void	Karen::debug(void) {
@@ -30,6 +34,10 @@ void	Karen::insignificant(void) {
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
 
+/************************************/
+/*			public method			*/
+/************************************/
+
 void	Karen::complain(std::string level) {
 	int idx = 0;
 
@@ -53,6 +61,10 @@ void	Karen::complain(std::string level) {
 			insignificant();
 	}
 }
+
+/************************************/
+/*	  constructor and destructor	*/
+/************************************/
 
 Karen::Karen(void) {
 
