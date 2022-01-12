@@ -5,7 +5,11 @@
 /********************************************/
 
 void	Zombie::announce(void) const {
-    std::cout << "<" << mName << "> " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "<" << mName << "> " << "BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name) {
+	mName = name;
 }
 
 /********************************************/
@@ -21,5 +25,5 @@ Zombie::Zombie(std::string name): mName(name) {
 }
 
 Zombie::~Zombie(void) {
-    std::cout << "<" << mName << "> " << "destroyed" << std::endl;
+	std::cout << "<" << mName << "> " << "destroyed" << std::endl;
 }

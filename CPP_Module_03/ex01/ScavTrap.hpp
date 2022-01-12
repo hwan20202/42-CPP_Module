@@ -4,23 +4,23 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-#define SCAV_INIT_NAME   "ScavTrap"
-#define SCAV_INIT_HP     100
-#define SCAV_INIT_EP     50
-#define SCAV_INIT_AD     20
+#define SCAV_CLASS_NAME   "ScavTrap"
+#define SCAV_CLASS_HP     100
+#define SCAV_CLASS_EP     50
+#define SCAV_CLASS_AD     20
+#define GRN "\e[0;32m"
+#define NC "\e[0m"
 
-class ScavTrap : public ClapTrap
-{
+class ScavTrap : public ClapTrap {
 public:
-    void GuardGate(void) const;
+    void guardGate(void) const;
 
     ScavTrap(void);
-    ScavTrap(std::string name);
-    ScavTrap(ScavTrap& obj);
+    ScavTrap(ScavTrap const & obj);
+    ScavTrap& operator=(ScavTrap const & obj);
     virtual ~ScavTrap();
 
-    ScavTrap& operator=(ScavTrap& obj);
+    ScavTrap(std::string const name);
 };
-
 
 #endif

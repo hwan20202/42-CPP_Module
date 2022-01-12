@@ -1,6 +1,6 @@
 NAME	=	claptrap
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CC		=	clang++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	ClapTrap.cpp\
 			main.cpp
 OBJS	=	ClapTrap.o\

@@ -2,20 +2,20 @@
 #include <fstream>
 
 int replace(std::string &fileName, std::string &s1, std::string &s2) {
-	std::ifstream	f1(fileName);
-	std::ofstream	f2;
+	std::ifstream	fin(fileName);
+	std::ofstream	fout;
 	std::string		buf;
 	int				pos;
 
 	if (s1.empty() || s2.empty())
 		return -1;
-	if (!f1.is_open()) {
+	if (!fin.is_open()) {
 		std::cout << "open failed!" << std::endl;
 		return -1;
 	}
 	std::cout << "open success!" << std::endl;
-	f2.open(fileName + ".replace");
-	while (std::getline(f1, buf)) {
+	fout.open(fileName + ".replace");
+	while (std::getline(fin, buf)) {
 		pos = 0;
 		for (int i = 0; buf.find(s1, i) != std::string::npos;) {
             pos = buf.find(s1, i);
@@ -23,7 +23,7 @@ int replace(std::string &fileName, std::string &s1, std::string &s2) {
 			buf.insert(pos, s2);
 			i += s2.size();
 		}
-		f2 << buf << std::endl;
+		fout << buf << std::endl;
 	}
 	return 0;
 }

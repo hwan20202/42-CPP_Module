@@ -1,6 +1,6 @@
-NAME	=	a.out
+NAME	=	replace
 CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror- -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	main.cpp
 OBJS	=	main.o
 

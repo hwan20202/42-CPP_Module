@@ -18,18 +18,18 @@ int main(void)
 	ShowStat(yesName);
 	ShowStat(copyMan);
 
-	noName.Attack("yesman");
-	noName.TakeDamage(5);
-	noName.TakeDamage(6);
-	noName.BeRepaired(5);
-	noName.BeRepaired(6);
+	noName.attack("yesman");
+	noName.takeDamage(5);
+	noName.takeDamage(6);
+	noName.beRepaired(5);
+	noName.beRepaired(6);
 	ShowStat(noName);
 
-	yesName.Attack("yesman");
-	yesName.TakeDamage(5);
-	yesName.TakeDamage(6);
-	yesName.BeRepaired(5);
-	yesName.BeRepaired(6);
+	yesName.attack("yesman");
+	yesName.takeDamage(5);
+	yesName.takeDamage(6);
+	yesName.beRepaired(5);
+	yesName.beRepaired(6);
 	ShowStat(yesName);
 
 	return 0;

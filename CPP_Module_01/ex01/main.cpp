@@ -5,7 +5,7 @@ int	main(void) {
 	Zombie *z = 0;
 
 	size = 5;
-	z = Zombie::zombieHorde(size, "zombie");
+	z = zombieHorde(size, "zombie");
 	if (z) {
 		std::cout << z << std::endl;
 		std::cout << &z[0] << std::endl;
@@ -13,8 +13,6 @@ int	main(void) {
 			if (z)
 				z[i].announce();
 		}
-		if (z)
-		    z->announce();
 		delete[] z;
 	} else
 		std::cout << "z is nullpointer" << std::endl;

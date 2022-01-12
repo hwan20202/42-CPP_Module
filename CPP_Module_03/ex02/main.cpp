@@ -1,13 +1,36 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+
+void ShowStat(FragTrap& obj)
+{
+	std::cout << "NAME	: [" << obj.GetName() << "]" << std::endl;
+	std::cout << "HP	: [" << obj.GetHP() << "]" << std::endl;
+	std::cout << "EP	: [" << obj.GetEP() << "]" << std::endl;
+	std::cout << "AD	: [" << obj.GetAD() << "]" << std::endl;
+}
 
 int main(void)
 {
-	ScavTrap st1("cron");
-	std::string targetName = "jeokim";
-	
-	st1.attack(targetName);
-	st1.beRepaired(10);
-	st1.takeDamage(10);
+	FragTrap noName;
+	FragTrap yesName("jeokim");
+	FragTrap copyMan(yesName);
 
-	return (0);
+	ShowStat(noName);
+	ShowStat(yesName);
+	ShowStat(copyMan);
+
+	noName.attack("yesman");
+	noName.takeDamage(5);
+	noName.takeDamage(6);
+	noName.beRepaired(5);
+	noName.beRepaired(6);
+	ShowStat(noName);
+
+	yesName.attack("yesman");
+	yesName.takeDamage(5);
+	yesName.takeDamage(6);
+	yesName.beRepaired(5);
+	yesName.beRepaired(6);
+	ShowStat(yesName);
+
+	return 0;
 }

@@ -2,38 +2,25 @@
 #define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include <string>
 
-class ScavTrap : virtual public ClapTrap
-{
+#define SCAV_CLASS_NAME   "ScavTrap"
+#define SCAV_CLASS_HP     100
+#define SCAV_CLASS_EP     50
+#define SCAV_CLASS_AD     20
+#define GRN "\e[0;32m"
+#define NC "\e[0m"
+
+class ScavTrap : public ClapTrap {
 public:
-    void guardGate(void);
+    void guardGate(void) const;
 
     ScavTrap(void);
-    ScavTrap(std::string name);
-    ~ScavTrap();
+    ScavTrap(ScavTrap const & obj);
+    ScavTrap& operator=(ScavTrap const & obj);
+    virtual ~ScavTrap();
+
+    ScavTrap(std::string const name);
 };
-
-void    ScavTrap::guardGate()
-{
-    std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
-}
-
-ScavTrap::ScavTrap()
-{
-    std::cout << "ScavTrap default constructor called" << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{
-    EnergyPoints = 50;
-    AttackDamage = 20;
-    std::cout << "ScavTrap initialized constructor called" << std::endl;
-}
-
-ScavTrap::~ScavTrap()
-{
-    std::cout << "ScavTrap destructor called" << std::endl;
-}
-
 
 #endif

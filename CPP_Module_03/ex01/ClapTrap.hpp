@@ -3,32 +3,40 @@
 
 #include <iostream>
 
-class ClapTrap
-{
+#define CLAP_CLASS_NAME	"ClapTrap"
+#define CLAP_CLASS_HP	10
+#define CLAP_CLASS_EP	10
+#define CLAP_CLASS_AD	0
+
+class ClapTrap {
 protected:
-	static const std::string    minitialName;
-	static const int			minitialHP;
-	static const int			minitialEP;
-	static const int			minitialAD;
 	std::string	mName;
 	int			mHP;
 	int			mEP;
 	int			mAD;
+
+	std::string const	mclassName;
+	unsigned int const	mmaxHP;
+	unsigned int const	mmaxEP;
+	unsigned int const	mmaxAD;
 public:
-	void	Attack(std::string const & target) const;
-	void	TakeDamage(unsigned int amount);
-	void	BeRepaired(unsigned int amount);
+	void		attack(std::string const & target) const;
+	void		takeDamage(unsigned int const amount);
+	void		beRepaired(unsigned int const amount);
 	std::string	GetName(void) const;
 	int			GetHP(void) const;
 	int			GetEP(void) const;
 	int			GetAD(void) const;
+	int			GetMaxHP(void) const;
+	int			GetMaxEP(void) const;
+	int			GetMaxAD(void) const;
 
 	ClapTrap(void);
-	ClapTrap(std::string name);
-	ClapTrap(ClapTrap& obj);
-	virtual ~ClapTrap();
+	ClapTrap(std::string const name);
+	ClapTrap(ClapTrap const & obj);
+	~ClapTrap();
 
-	ClapTrap& operator=(ClapTrap& obj);
+	ClapTrap&	operator=(ClapTrap const & obj);
 };
 
 #endif

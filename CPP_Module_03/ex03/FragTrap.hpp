@@ -3,38 +3,24 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
-{
+#define FRAG_CLASS_NAME	"FragTrap"
+#define FRAG_CLASS_HP	100
+#define FRAG_CLASS_EP	100
+#define FRAG_CLASS_AD	30
+#define CYN "\e[0;36m"
+#define NC "\e[0m"
+
+
+class FragTrap : public ClapTrap {
 public:
-    void highFivesGuys(void);
+	void highFivesGuys(void);
 
-    FragTrap(void);
-    FragTrap(std::string name);
-    ~FragTrap();
+	FragTrap(void);
+	FragTrap(FragTrap const & obj);
+	FragTrap &operator=(FragTrap const & obj);
+	virtual ~FragTrap();
+
+	FragTrap(std::string name);
 };
-
-void    FragTrap::guardGate(void)
-{
-    std::cout << "Highfive!!" << std::endl;
-}
-
-FragTrap::FragTrap()
-{
-    std::cout << "FragTrap default constructor called" << std::endl;
-}
-
-
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
-{
-    EnergyPoints = 100;
-    AttackDamage = 30;
-    std::cout << "FragTrap initialized constructor called" << std::endl;
-}
-
-FragTrap::~FragTrap()
-{
-    std::cout << "FragTrap destructor called" << std::endl;
-}
-
 
 #endif

@@ -1,4 +1,4 @@
-NAME	=	a.out
+NAME	=	karen2.0
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	main.cpp\

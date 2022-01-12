@@ -1,45 +1,35 @@
 #include "ScavTrap.hpp"
 
-void	ScavTrap::GuardGate(void) const
-{
-    std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
+/********************************************/
+/*				public method				*/
+/********************************************/
+
+void	ScavTrap::guardGate(void) const {
+    std::cout << GRN << "ScavTrap have enterred in Gate keeper mode" << NC << std::endl;
 }
 
-ScavTrap::ScavTrap(): ClapTrap(SCAV_INIT_NAME)
-{
-	mHP		= SCAV_INIT_HP;
-	mEP		= SCAV_INIT_EP;
-	mAD		= SCAV_INIT_AD;
-	// *(const_cast<int*>(&minitialHP)) = SCAV_INIT_HP;
-	// *(const_cast<int*>(&minitialEP)) = SCAV_INIT_EP;
-	// *(const_cast<int*>(&minitialAD)) = SCAV_INIT_AD;
-    std::cout << "ScavTrap default constructor called" << std::endl;
+/********************************************/
+/*			orthodox canonical form			*/
+/********************************************/
+
+ScavTrap::ScavTrap(): ClapTrap(SCAV_CLASS_NAME) {
+	mHP		= SCAV_CLASS_HP;
+	mEP		= SCAV_CLASS_EP;
+	mAD		= SCAV_CLASS_AD;
+	*(const_cast<std::string*>(&mclassName)) = SCAV_CLASS_NAME;
+	*(const_cast<unsigned int*>(&mmaxHP)) = SCAV_CLASS_HP;
+	*(const_cast<unsigned int*>(&mmaxEP)) = SCAV_CLASS_EP;
+	*(const_cast<unsigned int*>(&mmaxAD)) = SCAV_CLASS_AD;
+    std::cout << GRN << "ScavTrap default constructor called" << NC << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{
-	mHP		= minitialHP;
-	mEP		= minitialEP;
-	mAD		= minitialAD;
-	*(const_cast<int*>(&minitialHP)) = SCAV_INIT_HP;
-	*(const_cast<int*>(&minitialEP)) = SCAV_INIT_EP;
-	*(const_cast<int*>(&minitialAD)) = SCAV_INIT_AD;
-    std::cout << "ScavTrap initialized constructor called" << std::endl;
-}
-
-ScavTrap::ScavTrap(ScavTrap& obj)
-{
-    std::cout << "ScavTrap copy constructor called" << std::endl;
+ScavTrap::ScavTrap(ScavTrap const & obj) {
+    std::cout << GRN << "ScavTrap copy constructor called" << NC << std::endl;
 	*this = obj;
 }
 
-ScavTrap::~ScavTrap()
-{
-    std::cout << "ScavTrap destructor called" << std::endl;
-}
-
-ScavTrap&	ScavTrap::operator=(ScavTrap& obj)
-{
+ScavTrap	&ScavTrap::operator=(ScavTrap const & obj) {
+	std::cout << GRN << "ScavTrap assignation operator called" << NC << std::endl;
 	if (this != &obj)
 	{
 		mName = obj.GetName();
@@ -48,4 +38,23 @@ ScavTrap&	ScavTrap::operator=(ScavTrap& obj)
 		mAD = obj.GetAD();
 	}
 	return *this;
+}
+
+ScavTrap::~ScavTrap() {
+    std::cout << GRN << "ScavTrap destructor called" << NC << std::endl;
+}
+
+/********************************************/
+/*				other constructor			*/
+/********************************************/
+
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name) {
+    std::cout << GRN << "ScavTrap takes a name parameter constructor called" << NC << std::endl;
+	mHP		= SCAV_CLASS_HP;
+	mEP		= SCAV_CLASS_EP;
+	mAD		= SCAV_CLASS_AD;
+	*(const_cast<std::string*>(&mclassName)) = SCAV_CLASS_NAME;
+	*(const_cast<unsigned int*>(&mmaxHP)) = SCAV_CLASS_HP;
+	*(const_cast<unsigned int*>(&mmaxEP)) = SCAV_CLASS_EP;
+	*(const_cast<unsigned int*>(&mmaxAD)) = SCAV_CLASS_AD;
 }

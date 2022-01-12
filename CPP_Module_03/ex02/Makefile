@@ -1,9 +1,13 @@
-NAME	=	zombie
+NAME	=	flagtrap
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	Zombie.cpp\
+SRCS	=	ClapTrap.cpp\
+			ScavTrap.cpp\
+			FragTrap.cpp\
 			main.cpp
-OBJS	=	Zombie.o\
+OBJS	=	ClapTrap.o\
+			ScavTrap.o\
+			FragTrap.o\
 			main.o
 
 .cpp.o	:

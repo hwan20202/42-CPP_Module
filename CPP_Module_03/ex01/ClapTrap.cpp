@@ -1,32 +1,31 @@
 #include "ClapTrap.hpp"
-#include <cmath>
 
-const std::string	ClapTrap::minitialName	= "ClapTrap";
-const int			ClapTrap::minitialHP	= 10;
-const int			ClapTrap::minitialEP	= 10;
-const int			ClapTrap::minitialAD	= 0;
+/********************************************/
+/*				public method				*/
+/********************************************/
 
-void	ClapTrap::Attack(std::string const & target) const
-{
-	std::cout << "ClapTrap <" << mName << "> attack <" << target
+void	ClapTrap::attack(std::string const & target) const {
+	std::cout << mclassName << " <" << mName << "> attack <" << target
 				<< ">, causing <" << mAD << "> points of damage!" << std::endl;
 }
 
-void	ClapTrap::TakeDamage(const unsigned int amount)
-{
-	std::cout << "ClapTrap <" << mName
+void	ClapTrap::takeDamage(unsigned int const amount) {
+	std::cout << mclassName << " <" << mName
 				<< "> take  <" << amount << "> points of damage!" << std::endl;
-	mHP = fmax(mHP - static_cast<int>(amount), 0);
-	std::cout << "ClapTrap <" << mName
+	mHP -= amount;
+	if (mHP < 0)
+		mHP = 0;
+	std::cout << mclassName << " <" << mName
 				<< "> current HP is <" << mHP << ">" << std::endl;
 }
 
-void	ClapTrap::BeRepaired(const unsigned int amount)
-{
-	std::cout << "ClapTrap <" << mName
+void	ClapTrap::beRepaired(unsigned int const amount) {
+	std::cout << mclassName << " <" << mName
 				<< "> be repaired  <" << amount << "> points!" << std::endl;
-	mHP = fmin(mHP + amount, minitialHP);
-	std::cout << "ClapTrap <" << mName
+	mHP += amount;
+	if (mHP > static_cast<int>(mmaxHP))
+		mHP = mmaxHP;
+	std::cout << mclassName << " <" << mName
 			<< "> current HP is <" << mHP << ">" << std::endl;
 }
 
@@ -46,29 +45,40 @@ int			ClapTrap::GetAD(void) const {
 	return mAD;
 }
 
-ClapTrap::ClapTrap(void): mName(minitialName), mHP(minitialHP), mEP(minitialEP), mAD(minitialAD)
-{
+int			ClapTrap::GetMaxHP(void) const {
+	return mmaxHP;
+}
+
+int			ClapTrap::GetMaxEP(void) const {
+	return mmaxEP;
+}
+
+int			ClapTrap::GetMaxAD(void) const {
+	return mmaxAD;
+}
+
+/********************************************/
+/*			orthodox canonical form			*/
+/********************************************/
+
+ClapTrap::ClapTrap(void)
+	:	mName(CLAP_CLASS_NAME), mHP(CLAP_CLASS_HP), mEP(CLAP_CLASS_EP), mAD(CLAP_CLASS_AD),
+		mclassName(CLAP_CLASS_NAME), mmaxHP(CLAP_CLASS_HP), mmaxEP(CLAP_CLASS_EP), mmaxAD(CLAP_CLASS_AD) {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): mName(name), mHP(minitialHP), mEP(minitialEP), mAD(minitialAD)
-{
-	std::cout << "ClapTrap taking name parameter constructor called" << std::endl;
-}
-
-ClapTrap::ClapTrap(ClapTrap& obj)
-{
+ClapTrap::ClapTrap(ClapTrap const & obj)
+	:	mclassName(CLAP_CLASS_NAME),
+		mmaxHP(CLAP_CLASS_HP), mmaxEP(CLAP_CLASS_EP), mmaxAD(CLAP_CLASS_AD) {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = obj;
 }
 
-ClapTrap::~ClapTrap(void)
-{
+ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap default destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap& obj)
-{
+ClapTrap& ClapTrap::operator=(ClapTrap const & obj) {
 	std::cout << "ClapTrap assignation operator called" << std::endl;
 	if (this != &obj)
 	{
@@ -78,4 +88,14 @@ ClapTrap& ClapTrap::operator=(ClapTrap& obj)
 		mAD = obj.GetAD();
 	}
 	return *this;
+}
+
+/********************************************/
+/*				other constructor			*/
+/********************************************/
+
+ClapTrap::ClapTrap(std::string const name)
+	:	mName(name), mHP(CLAP_CLASS_HP), mEP(CLAP_CLASS_EP), mAD(CLAP_CLASS_AD),
+		mclassName(CLAP_CLASS_NAME), mmaxHP(CLAP_CLASS_HP), mmaxEP(CLAP_CLASS_EP), mmaxAD(CLAP_CLASS_AD) {
+	    std::cout << "ClapTrap takes a name parameter constructor called" << std::endl;
 }

@@ -1,6 +1,6 @@
 NAME	=	scavtrap
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror #-fsanitize=address -g
+CC		=	clang++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	ClapTrap.cpp\
 			ScavTrap.cpp\
 			main.cpp
