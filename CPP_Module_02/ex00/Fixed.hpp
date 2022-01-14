@@ -6,7 +6,7 @@
 
 class Fixed {
 private:
-	static int const	mFractionalBits;
+	static int const	mFractionalBits = 8;
 	
 	int					mRawBits;
 
@@ -15,10 +15,9 @@ public:
 	void	setRawBits(int const num);
 
 	Fixed(void);
-	~Fixed(void);
 	Fixed(Fixed const & obj);
-	
 	Fixed	&operator=(Fixed const & obj);
+	~Fixed(void);
 };
 
 #endif

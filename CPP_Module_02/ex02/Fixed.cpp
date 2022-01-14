@@ -1,11 +1,9 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 /************************************/
 /*			static member			*/
 /************************************/
-
-int const	Fixed::mFractionalBits = 8;
-
 
 Fixed &Fixed::min(Fixed &obj1, Fixed &obj2) {
 	if (obj1 <= obj2)
@@ -20,15 +18,15 @@ Fixed &Fixed::max(Fixed &obj1, Fixed &obj2) {
 }
 
 Fixed const & Fixed::min(Fixed const & obj1, Fixed const & obj2) {
-    if (obj1 <= obj2)
-        return obj1;
-    return obj2;
+	if (obj1 <= obj2)
+		return obj1;
+	return obj2;
 }
 
 Fixed const & Fixed::max(Fixed const & obj1, Fixed const & obj2) {
-    if (obj1 >= obj2)
-        return obj1;
-    return obj2;
+	if (obj1 >= obj2)
+		return obj1;
+	return obj2;
 }
 
 /************************************/
@@ -41,7 +39,7 @@ int		Fixed::getRawBits(void) const {
 }
 
 void	Fixed::setRawBits(int num) {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	mRawBits = num;
 }
 
@@ -58,31 +56,31 @@ float	Fixed::toFloat(void) const {
 /************************************/
 
 Fixed::Fixed(void): mRawBits(0) {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const & obj) {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed& Fixed::operator=(Fixed const & obj) {
-	std::cout << "Assignation operator called" << std::endl;
+	// std::cout << "Assignation operator called" << std::endl;
 	if (this != &obj)
 		mRawBits = obj.getRawBits();
 	return *this;
 }
 
 Fixed::~Fixed(void ) {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(int const num): mRawBits(num << mFractionalBits) {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float const num): mRawBits(roundf(num * (1 << mFractionalBits))){
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 }
 
 /************************************/
@@ -145,31 +143,27 @@ Fixed	Fixed::operator/(Fixed const & obj) const {
 }
 
 Fixed	&Fixed::operator++(void) {
-	std::cout << "prefix operator called" << std::endl;
 	mRawBits++;
 	return *this;
 }
 
-Fixed	Fixed::operator++(int notused) {
+Fixed	Fixed::operator++(int postfix) {
 	Fixed	tmp(*this);
 
-	(void)notused;
+	(void)postfix;
 	mRawBits++;
-	std::cout << "postfix operator called" << std::endl;
 	return tmp;
 }
 
 Fixed	&Fixed::operator--(void) {
 	mRawBits--;
-	std::cout << "prefix operator called" << std::endl;
 	return *this;
 }
 
-Fixed	Fixed::operator--(int notused) {
-	std::cout << "postfix operator called" << std::endl;
+Fixed	Fixed::operator--(int postfix) {
 	Fixed tmp(*this);
 
-	(void)notused;
+	(void)postfix;
 	mRawBits--;
 	return tmp;
 }

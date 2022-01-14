@@ -3,28 +3,19 @@
 
 int main(void)
 {
-    // Point a(0.0, 0.0);
-    // Point b(1.1, 2.2);
-    // Point c(2.3, 0.1);
-    // Point p1(1, 1); // in the middle of triangle
-    // Point p2(3, 3); // out of the triangle
-    // Point p3(1, 2); // point of triangle's vertex
-    // Point p4(0.5, 1); // on the line of triangle
+	Point a(0.0, 2.0);
+	Point b(-2, 0);
+	Point c(2, 0);
 
-    // std::cout << Point::bsp(a, b, c, p1) << std::endl;
-    // std::cout << Point::bsp(a, b, c, p2) << std::endl;
-    // std::cout << Point::bsp(a, b, c, p3) << std::endl;
+	Point p1(0, 1); // in the middle of triangle
+	Point p2(3, 3); // out of the triangle
+	Point p3(2, 0); // point of triangle's vertex
+	Point p4(1, 1); // on the line of triangle
 
-    Point a(10000, 0.0);
-    Point b(-10000, 0.0);
-    Point c(0.0, 10000);
-    Point p1(1, 1); // in the middle of triangle
-    Point p2(3, 3); // out of the triangle
-    Point p3(1, 2); // point of triangle's vertex
-    Point p4(0.5, 1); // on the line of triangle
+	std::cout << bsp(a, b, c, p1) << std::endl;
+	std::cout << bsp(a, b, c, p2) << std::endl;
+	std::cout << bsp(a, b, c, p3) << std::endl;
+	std::cout << bsp(a, b, c, p4) << std::endl;
 
-    std::cout << Point::bsp(a, b, c, p1) << std::endl;
-    std::cout << Point::bsp(a, b, c, p2) << std::endl;
-    std::cout << Point::bsp(a, b, c, p3) << std::endl;
-    return 0;
+	return 0;
 }

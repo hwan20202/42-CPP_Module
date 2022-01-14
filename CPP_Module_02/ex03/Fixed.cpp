@@ -1,11 +1,9 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 /************************************/
 /*			static member			*/
 /************************************/
-
-int const	Fixed::mFractionalBits = 8;
-
 
 Fixed &Fixed::min(Fixed &obj1, Fixed &obj2) {
 	if (obj1 <= obj2)
@@ -149,10 +147,10 @@ Fixed	&Fixed::operator++(void) {
 	return *this;
 }
 
-Fixed	Fixed::operator++(int notused) {
+Fixed	Fixed::operator++(int postfix) {
 	Fixed	tmp(*this);
 
-	(void)notused;
+	(void)postfix;
 	mRawBits++;
 	return tmp;
 }
@@ -162,10 +160,10 @@ Fixed	&Fixed::operator--(void) {
 	return *this;
 }
 
-Fixed	Fixed::operator--(int notused) {
+Fixed	Fixed::operator--(int postfix) {
 	Fixed tmp(*this);
 
-	(void)notused;
+	(void)postfix;
 	mRawBits--;
 	return tmp;
 }

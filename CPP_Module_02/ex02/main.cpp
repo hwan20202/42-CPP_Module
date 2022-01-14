@@ -8,54 +8,55 @@
 #define REDB "\e[41m"
 #define NC "\e[0m"
 
-int main(void)
-{
-	// Fixed		a;
-	// Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
+int main( void ) {
 
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << Fixed::max( a, b ) << std::endl;
+	//given test in subject
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	float a = 0;
-	float b = 0;
-	float d = 2;
-	Fixed A(a);
-	Fixed B(b);
-	Fixed D(d);
+	//arithmetic operation test
+	Fixed f1(10.5f);
+	Fixed f2(2);
+	Fixed f3(-2);
 
-	std::cout << CYN << (a == b) << NC << " : "
+	//comparison operation test
+	float af = 0;
+	float bf = 0;
+	float cf = 2;
+	Fixed A(af);
+	Fixed B(bf);
+	Fixed C(cf);
+
+	//given test in subject
+	std::cout << GRN;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << NC << std::endl;
+
+	//arithmetic operation test
+	std::cout << CYN;
+	std::cout << "10.5 + 2 = " << f1 + f2 << std::endl;
+	std::cout << "10.5 - 2 = " << f1 - f2 << std::endl;
+	std::cout << "10.5 * 2 = " << f1 * f2 << std::endl;
+	std::cout << "10.5 * -2 = " << f1 * f3 << std::endl;
+	std::cout << "10.5 / 2 = " << f1 / f2 << std::endl;
+	std::cout << "10.5 / -2 = " << f1 / f3 << NC << std::endl;
+
+	//comparison operation test
+	std::cout << GRN << (af == bf) << NC << " : "
 				<< RED << (A == B)  << std::endl;
-
-	std::cout << CYN << (a < b) << NC << " : "
+	std::cout << GRN << (af < bf) << NC << " : "
 				<< RED << (A < B)  << std::endl;
-
-	std::cout << CYN << (d < b)  << NC << " : "
-				<< RED << (D < B) << std::endl;
-
-	std::cout << CYN << (d <= b) << NC << " : "
-				<< RED << (D <= B) << std::endl;
-
-	std::cout << CYN << (a <= b) << NC << " : "
+	std::cout << GRN << (cf < bf)  << NC << " : "
+				<< RED << (C < B) << std::endl;
+	std::cout << GRN << (cf <= bf) << NC << " : "
+				<< RED << (C <= B) << std::endl;
+	std::cout << GRN << (af <= bf) << NC << " : "
 				<< RED << (A <= B) << NC << std::endl;
-
 
 	return 0;
 }
-
-	// float	af(10.10);
-	// int		tmp;
-
-	// std::cout << std::bitset<32>(af) << std::endl;
-	// tmp = af * (1 << 8);
-	// std::cout << std::bitset<32>(tmp) << std::endl;
-	// tmp = af * (1 << 12);
-	// std::cout << std::bitset<32>(tmp) << std::endl;
-	// tmp = af * (1 << 16);
-	// std::cout << std::bitset<32>(tmp) << std::endl;
-	// tmp = af * (1 << 20);
-	// std::cout << std::bitset<32>(tmp) << std::endl;

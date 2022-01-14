@@ -2,23 +2,17 @@
 #include <cmath>
 
 /************************************/
-/*      static member variable      */
-/************************************/
-
-int const   Fixed::mFractionalBits = 8;
-
-/************************************/
 /*       public member method       */
 /************************************/
 
 int		Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
-    return mRawBits;
+	// std::cout << "getRawBits member function called" << std::endl;
+	return mRawBits;
 }
 
 void	Fixed::setRawBits(int num) {
-    std::cout << "setRawBits member function called" << std::endl;
-    mRawBits = num;
+	// std::cout << "setRawBits member function called" << std::endl;
+	mRawBits = num;
 }
 
 int		Fixed::toInt(void) const {
@@ -34,23 +28,23 @@ float	Fixed::toFloat(void) const {
 /************************************/
 
 Fixed::Fixed(void): mRawBits(0) {
-    std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const & obj) {
-    std::cout << "Copy constructor called" << std::endl;
-    *this = obj;
+	std::cout << "Copy constructor called" << std::endl;
+	*this = obj;
 }
 
 Fixed& Fixed::operator=(const Fixed& obj) {
-    std::cout << "Assignation operator called" << std::endl;
-    if (this != &obj)
-        mRawBits = obj.getRawBits();
-    return *this;
+	std::cout << "Assignation operator called" << std::endl;
+	if (this != &obj)
+		mRawBits = obj.mRawBits;
+	return *this;
 }
 
 Fixed::~Fixed(void ) {
-    std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(int const num): mRawBits(num << mFractionalBits) {
