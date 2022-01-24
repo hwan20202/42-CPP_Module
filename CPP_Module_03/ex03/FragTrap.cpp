@@ -4,7 +4,12 @@
 /*				public method				*/
 /********************************************/
 
-void	FragTrap::highFivesGuys(void) {
+void	FragTrap::attack(std::string const & target) const {
+	std::cout << "FragTrap <" << mName << "> attack <" << target
+				<< ">, causing <" << mAD << "> points of damage!" << std::endl;
+}
+
+void	FragTrap::highFivesGuys(void) const {
 	std::cout << CYN << "Let's highfive!!" << NC << std::endl;
 } 
 
@@ -31,10 +36,10 @@ FragTrap::FragTrap(FragTrap const & obj) {
 FragTrap &FragTrap::operator=(FragTrap const & obj) {
 	std::cout << CYN << "FragTrap assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mName = obj.GetName();
-		mHP = obj.GetHP();
-		mEP = obj.GetEP();
-		mAD = obj.GetAD();
+		mName = obj.mName;
+		mHP = obj.mHP;
+		mEP = obj.mEP;
+		mAD = obj.mAD;
 	}
 	return *this;
 }

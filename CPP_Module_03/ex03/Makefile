@@ -1,13 +1,15 @@
-NAME	=	flagtrap
+NAME	=	diamondTrap
 CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
 SRCS	=	ClapTrap.cpp\
 			ScavTrap.cpp\
 			FragTrap.cpp\
+			DiamondTrap.cpp\
 			main.cpp
 OBJS	=	ClapTrap.o\
 			ScavTrap.o\
 			FragTrap.o\
+			DiamondTrap.o\
 			main.o
 
 .cpp.o	:

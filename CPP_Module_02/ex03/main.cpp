@@ -12,10 +12,10 @@ int main(void)
 	Point p3(2, 0); // point of triangle's vertex
 	Point p4(1, 1); // on the line of triangle
 
-	std::cout << bsp(a, b, c, p1) << std::endl;
-	std::cout << bsp(a, b, c, p2) << std::endl;
-	std::cout << bsp(a, b, c, p3) << std::endl;
-	std::cout << bsp(a, b, c, p4) << std::endl;
+	std::cout << bsp(a, a, a, a) << std::endl;
+	std::cout << bsp(a, a, c, a) << std::endl;
+	// std::cout << bsp(a, b, c, p3) << std::endl;
+	// std::cout << bsp(a, b, c, p4) << std::endl;
 
 	return 0;
 }

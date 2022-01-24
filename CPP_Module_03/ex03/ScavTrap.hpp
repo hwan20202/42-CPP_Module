@@ -11,13 +11,14 @@
 #define GRN "\e[0;32m"
 #define NC "\e[0m"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 public:
-    void guardGate(void) const;
+    void    attack(std::string const & target) const;
+    void    guardGate(void) const;
 
     ScavTrap(void);
     ScavTrap(ScavTrap const & obj);
-    ScavTrap& operator=(ScavTrap const & obj);
+    ScavTrap    &operator=(ScavTrap const & obj);
     virtual ~ScavTrap();
 
     ScavTrap(std::string const name);

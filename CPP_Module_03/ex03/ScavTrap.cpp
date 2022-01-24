@@ -4,6 +4,11 @@
 /*				public method				*/
 /********************************************/
 
+void    ScavTrap::attack(std::string const & target) const {
+	std::cout << "ScavTrap <" << mName << "> attack <" << target
+				<< ">, causing <" << mAD << "> points of damage!" << std::endl;
+}
+
 void	ScavTrap::guardGate(void) const {
     std::cout << GRN << "ScavTrap have enterred in Gate keeper mode" << NC << std::endl;
 }
@@ -30,12 +35,11 @@ ScavTrap::ScavTrap(ScavTrap const & obj) {
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const & obj) {
 	std::cout << GRN << "ScavTrap assignation operator called" << NC << std::endl;
-	if (this != &obj)
-	{
-		mName = obj.GetName();
-		mHP = obj.GetHP();
-		mEP = obj.GetEP();
-		mAD = obj.GetAD();
+	if (this != &obj) {
+		mName = obj.mName;
+		mHP = obj.mHP;
+		mEP = obj.mEP;
+		mAD = obj.mAD;
 	}
 	return *this;
 }

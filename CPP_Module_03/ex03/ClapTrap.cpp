@@ -5,7 +5,7 @@
 /********************************************/
 
 void	ClapTrap::attack(std::string const & target) const {
-	std::cout << mclassName << " <" << mName << "> attack <" << target
+	std::cout << "ClapTrap <" << mName << "> attack <" << target
 				<< ">, causing <" << mAD << "> points of damage!" << std::endl;
 }
 
@@ -27,34 +27,6 @@ void	ClapTrap::beRepaired(unsigned int const amount) {
 		mHP = mmaxHP;
 	std::cout << mclassName << " <" << mName
 			<< "> current HP is <" << mHP << ">" << std::endl;
-}
-
-std::string	ClapTrap::GetName(void) const {
-	return mName;
-}
-
-int			ClapTrap::GetHP(void) const {
-	return mHP;
-}
-
-int			ClapTrap::GetEP(void) const {
-	return mEP;
-}
-
-int			ClapTrap::GetAD(void) const {
-	return mAD;
-}
-
-int			ClapTrap::GetMaxHP(void) const {
-	return mmaxHP;
-}
-
-int			ClapTrap::GetMaxEP(void) const {
-	return mmaxEP;
-}
-
-int			ClapTrap::GetMaxAD(void) const {
-	return mmaxAD;
 }
 
 /********************************************/
@@ -82,10 +54,10 @@ ClapTrap& ClapTrap::operator=(ClapTrap const & obj) {
 	std::cout << "ClapTrap assignation operator called" << std::endl;
 	if (this != &obj)
 	{
-		mName = obj.GetName();
-		mHP = obj.GetHP();
-		mEP = obj.GetEP();
-		mAD = obj.GetAD();
+		mName = obj.mName;
+		mHP = obj.mHP;
+		mEP = obj.mEP;
+		mAD = obj.mAD;
 	}
 	return *this;
 }
