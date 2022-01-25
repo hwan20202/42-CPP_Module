@@ -14,16 +14,17 @@ int main(void)
 	FragTrap yesName("jeokim");
 	FragTrap copyMan(yesName);
 
+
 	ShowStat(noName);
 	ShowStat(yesName);
 	ShowStat(copyMan);
 
 	noName.attack("yesman");
 	noName.takeDamage(5);
-	noName.takeDamage(6);
-	noName.beRepaired(5);
-	noName.beRepaired(6);
 	ShowStat(noName);
+
+	copyMan = noName;
+	ShowStat(copyMan);
 
 	yesName.attack("yesman");
 	yesName.takeDamage(5);
@@ -32,5 +33,7 @@ int main(void)
 	yesName.beRepaired(6);
 	ShowStat(yesName);
 
+	yesName.highFivesGuys();
+	
 	return 0;
 }

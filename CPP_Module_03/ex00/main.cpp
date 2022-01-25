@@ -1,11 +1,5 @@
 #include "ClapTrap.hpp"
 
-#define NC "\e[0m"
-#define RED "\e[0;31m"
-#define GRN "\e[0;32m"
-#define CYN "\e[0;36m"
-#define REDB "\e[41m"
-
 void	ShowStat(ClapTrap& obj) {
 	std::cout << "NAME	: [" << obj.GetName() << "]" << std::endl;
 	std::cout << "HP	: [" << obj.GetHP() << "]" << std::endl;
@@ -24,10 +18,10 @@ int		main(void) {
 
 	noName.attack("yesman");
 	noName.takeDamage(5);
-	noName.takeDamage(6);
-	noName.beRepaired(5);
-	noName.beRepaired(6);
 	ShowStat(noName);
+
+	copyMan = noName;
+	ShowStat(copyMan);
 
 	yesName.attack("yesman");
 	yesName.takeDamage(5);

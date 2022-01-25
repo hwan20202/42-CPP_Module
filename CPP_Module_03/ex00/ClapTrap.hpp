@@ -15,7 +15,6 @@ private:
 	int			mEP;
 	int			mAD;
 
-	std::string const	mclassName;
 	unsigned int const	mmaxHP;
 	unsigned int const	mmaxEP;
 	unsigned int const	mmaxAD;

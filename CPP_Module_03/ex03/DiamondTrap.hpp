@@ -14,7 +14,10 @@ private:
 	std::string mName;
 
 public:
-	void	attack(std::string const & target) const;
+	virtual void	attack(std::string const & target) const;
+	virtual void	takeDamage(unsigned int const amount);
+	virtual void	beRepaired(unsigned int const amount);
+
 	void	whoAmI(void) const;
 
 	DiamondTrap(void);

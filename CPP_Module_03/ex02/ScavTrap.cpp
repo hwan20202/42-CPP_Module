@@ -5,12 +5,32 @@
 /********************************************/
 
 void    ScavTrap::attack(std::string const & target) const {
-	std::cout << "ScavTrap <" << mName << "> attack <" << target
-				<< ">, causing <" << mAD << "> points of damage!" << std::endl;
+	std::cout << GRN << "ScavTrap <" << mName << "> attack <" << target
+				<< ">, causing <" << mAD << "> points of damage!" << NC << std::endl;
+}
+
+void	ScavTrap::takeDamage(unsigned int const amount) {
+	std::cout << GRN << "ScavTrap <" << mName
+				<< "> take  <" << amount << "> points of damage!" << NC << std::endl;
+	mHP -= amount;
+	if (mHP < 0)
+		mHP = 0;
+	std::cout << GRN << "ScavTrap <" << mName
+				<< "> current HP is <" << mHP << ">" << NC << std::endl;
+}
+
+void	ScavTrap::beRepaired(unsigned int const amount) {
+	std::cout << GRN << "ScavTrap <" << mName
+				<< "> be repaired  <" << amount << "> points!" << NC << std::endl;
+	mHP += amount;
+	if (mHP > static_cast<int>(mmaxHP))
+		mHP = mmaxHP;
+	std::cout << GRN << "ScavTrap <" << mName
+			<< "> current HP is <" << mHP << ">" << NC << std::endl;
 }
 
 void	ScavTrap::guardGate(void) const {
-    std::cout << GRN << "ScavTrap have enterred in Gate keeper mode" << NC << std::endl;
+    std::cout << GRN << "ScavTrap " << mName << " have enterred in Gate keeper mode" << NC << std::endl;
 }
 
 /********************************************/
@@ -21,7 +41,6 @@ ScavTrap::ScavTrap(): ClapTrap(SCAV_CLASS_NAME) {
 	mHP		= SCAV_CLASS_HP;
 	mEP		= SCAV_CLASS_EP;
 	mAD		= SCAV_CLASS_AD;
-	*(const_cast<std::string*>(&mclassName)) = SCAV_CLASS_NAME;
 	*(const_cast<unsigned int*>(&mmaxHP)) = SCAV_CLASS_HP;
 	*(const_cast<unsigned int*>(&mmaxEP)) = SCAV_CLASS_EP;
 	*(const_cast<unsigned int*>(&mmaxAD)) = SCAV_CLASS_AD;
@@ -58,7 +77,6 @@ ScavTrap::ScavTrap(std::string const name) : ClapTrap(name) {
 	mHP		= SCAV_CLASS_HP;
 	mEP		= SCAV_CLASS_EP;
 	mAD		= SCAV_CLASS_AD;
-	*(const_cast<std::string*>(&mclassName)) = SCAV_CLASS_NAME;
 	*(const_cast<unsigned int*>(&mmaxHP)) = SCAV_CLASS_HP;
 	*(const_cast<unsigned int*>(&mmaxEP)) = SCAV_CLASS_EP;
 	*(const_cast<unsigned int*>(&mmaxAD)) = SCAV_CLASS_AD;

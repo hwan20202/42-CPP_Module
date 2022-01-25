@@ -4,6 +4,13 @@ void	DiamondTrap::attack(std::string const & target) const {
 	ScavTrap::attack(target);
 }
 
+void	DiamondTrap::takeDamage(unsigned int const amount) {
+	ScavTrap::takeDamage(amount);
+}
+void	DiamondTrap::beRepaired(unsigned int const amount){
+	ScavTrap::beRepaired(amount);
+}
+
 void	DiamondTrap::whoAmI(void) const {
 	std::cout << "Name is " << mName << std::endl;
 	std::cout << "ClapTrap name is " << ClapTrap::mName << std::endl;

@@ -5,9 +5,30 @@
 /********************************************/
 
 void	FragTrap::attack(std::string const & target) const {
-	std::cout << "FragTrap <" << mName << "> attack <" << target
-				<< ">, causing <" << mAD << "> points of damage!" << std::endl;
+	std::cout << CYN << "FragTrap <" << mName << "> attack <" << target
+				<< ">, causing <" << mAD << "> points of damage!" << NC << std::endl;
 }
+
+void	FragTrap::takeDamage(unsigned int const amount) {
+	std::cout << CYN << "FragTrap <" << mName
+				<< "> take  <" << amount << "> points of damage!" << NC << std::endl;
+	mHP -= amount;
+	if (mHP < 0)
+		mHP = 0;
+	std::cout << CYN << "FragTrap <" << mName
+				<< "> current HP is <" << mHP << ">" << NC << std::endl;
+}
+
+void	FragTrap::beRepaired(unsigned int const amount) {
+	std::cout << CYN << "FragTrap <" << mName
+				<< "> be repaired  <" << amount << "> points!" << NC << std::endl;
+	mHP += amount;
+	if (mHP > static_cast<int>(mmaxHP))
+		mHP = mmaxHP;
+	std::cout << CYN << "FragTrap <" << mName
+			<< "> current HP is <" << mHP << ">" << NC << std::endl;
+}
+
 
 void	FragTrap::highFivesGuys(void) const {
 	std::cout << CYN << "Let's highfive!!" << NC << std::endl;
@@ -21,7 +42,6 @@ FragTrap::FragTrap(void): ClapTrap(FRAG_CLASS_NAME) {
 	mHP = FRAG_CLASS_HP;
 	mEP = FRAG_CLASS_EP;
 	mAD = FRAG_CLASS_AD;
-	*(const_cast<std::string*>(&mclassName)) = FRAG_CLASS_NAME;
 	*const_cast<unsigned int*>(&mmaxHP) = FRAG_CLASS_HP;
 	*const_cast<unsigned int*>(&mmaxEP) = FRAG_CLASS_EP;
 	*const_cast<unsigned int*>(&mmaxAD) = FRAG_CLASS_AD;
@@ -57,7 +77,6 @@ FragTrap::FragTrap(std::string name): ClapTrap(name) {
 	mHP = FRAG_CLASS_HP;
 	mEP = FRAG_CLASS_EP;
 	mAD = FRAG_CLASS_AD;
-	*(const_cast<std::string*>(&mclassName)) = FRAG_CLASS_NAME;
 	*const_cast<unsigned int*>(&mmaxHP) = FRAG_CLASS_HP;
 	*const_cast<unsigned int*>(&mmaxEP) = FRAG_CLASS_EP;
 	*const_cast<unsigned int*>(&mmaxAD) = FRAG_CLASS_AD;

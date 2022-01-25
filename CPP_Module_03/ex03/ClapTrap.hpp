@@ -15,21 +15,27 @@ protected:
 	int			mEP;
 	int			mAD;
 
-	std::string const	mclassName;
 	unsigned int const	mmaxHP;
 	unsigned int const	mmaxEP;
 	unsigned int const	mmaxAD;
 public:
-	void		attack(std::string const & target) const;
-	void		takeDamage(unsigned int const amount);
-	void		beRepaired(unsigned int const amount);
+	virtual void		attack(std::string const & target) const;
+	virtual void		takeDamage(unsigned int const amount);
+	virtual void		beRepaired(unsigned int const amount);
+	std::string	GetName(void) const;
+	int			GetHP(void) const;
+	int			GetEP(void) const;
+	int			GetAD(void) const;
+	int			GetMaxHP(void) const;
+	int			GetMaxEP(void) const;
+	int			GetMaxAD(void) const;
 
 	ClapTrap(void);
 	ClapTrap(std::string const name);
 	ClapTrap(ClapTrap const & obj);
 	~ClapTrap();
 
-	ClapTrap	&operator=(ClapTrap const & obj);
+	ClapTrap&	operator=(ClapTrap const & obj);
 };
 
 #endif
