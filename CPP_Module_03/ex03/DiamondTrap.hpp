@@ -6,13 +6,13 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
+#define NC "\e[0m"
+#define YEL "\e[0;93m"
 #define DIAMOND_CLASS_NAME	"DiamondTrap"
 
-class DiamondTrap : public ScavTrap, public FragTrap
-{
+class DiamondTrap : public ScavTrap, public FragTrap {
 private:
 	std::string mName;
-
 public:
 	virtual void	attack(std::string const & target) const;
 	virtual void	takeDamage(unsigned int const amount);
@@ -24,6 +24,8 @@ public:
 	DiamondTrap(DiamondTrap const & obj);
 	DiamondTrap	&operator=(DiamondTrap const & obj);
 	~DiamondTrap(void);
+
+	DiamondTrap(std::string name);
 };
 
 #endif

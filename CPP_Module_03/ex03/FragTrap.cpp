@@ -29,7 +29,6 @@ void	FragTrap::beRepaired(unsigned int const amount) {
 			<< "> current HP is <" << mHP << ">" << NC << std::endl;
 }
 
-
 void	FragTrap::highFivesGuys(void) const {
 	std::cout << CYN << "Let's highfive!!" << NC << std::endl;
 } 

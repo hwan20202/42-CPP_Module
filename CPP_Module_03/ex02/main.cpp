@@ -8,8 +8,7 @@ void ShowStat(FragTrap& obj)
 	std::cout << "AD	: [" << obj.GetAD() << "]" << std::endl;
 }
 
-int main(void)
-{
+int main(void) {
 	FragTrap noName;
 	FragTrap yesName("jeokim");
 	FragTrap copyMan(yesName);
