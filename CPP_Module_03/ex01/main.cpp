@@ -8,8 +8,7 @@ void ShowStat(ScavTrap& obj)
 	std::cout << "AD	: [" << obj.GetAD() << "]" << std::endl;
 }
 
-int main(void)
-{
+int main(void) {
 	ScavTrap noName;
 	ScavTrap yesName("jeokim");
 	ScavTrap copyMan(yesName);

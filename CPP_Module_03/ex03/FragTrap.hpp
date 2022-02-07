@@ -10,7 +10,6 @@
 #define CYN "\e[0;36m"
 #define NC "\e[0m"
 
-
 class FragTrap : virtual public ClapTrap {
 public:
 	virtual void	attack(std::string const & target) const;
