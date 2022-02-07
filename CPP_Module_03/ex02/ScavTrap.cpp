@@ -23,7 +23,7 @@ void	ScavTrap::beRepaired(unsigned int const amount) {
 	std::cout << GRN << "ScavTrap <" << mName
 				<< "> be repaired  <" << amount << "> points!" << NC << std::endl;
 	mHP += amount;
-	if (mHP > static_cast<int>(mmaxHP))
+	if (mHP > (int)mmaxHP)
 		mHP = mmaxHP;
 	std::cout << GRN << "ScavTrap <" << mName
 			<< "> current HP is <" << mHP << ">" << NC << std::endl;
@@ -41,9 +41,9 @@ ScavTrap::ScavTrap(): ClapTrap(SCAV_CLASS_NAME) {
 	mHP		= SCAV_CLASS_HP;
 	mEP		= SCAV_CLASS_EP;
 	mAD		= SCAV_CLASS_AD;
-	*(const_cast<unsigned int*>(&mmaxHP)) = SCAV_CLASS_HP;
-	*(const_cast<unsigned int*>(&mmaxEP)) = SCAV_CLASS_EP;
-	*(const_cast<unsigned int*>(&mmaxAD)) = SCAV_CLASS_AD;
+	mmaxHP = SCAV_CLASS_HP;
+	mmaxEP = SCAV_CLASS_EP;
+	mmaxAD = SCAV_CLASS_AD;
     std::cout << GRN << "ScavTrap default constructor called" << NC << std::endl;
 }
 
@@ -77,7 +77,7 @@ ScavTrap::ScavTrap(std::string const name) : ClapTrap(name) {
 	mHP		= SCAV_CLASS_HP;
 	mEP		= SCAV_CLASS_EP;
 	mAD		= SCAV_CLASS_AD;
-	*(const_cast<unsigned int*>(&mmaxHP)) = SCAV_CLASS_HP;
-	*(const_cast<unsigned int*>(&mmaxEP)) = SCAV_CLASS_EP;
-	*(const_cast<unsigned int*>(&mmaxAD)) = SCAV_CLASS_AD;
+	mmaxHP = SCAV_CLASS_HP;
+	mmaxEP = SCAV_CLASS_EP;
+	mmaxAD = SCAV_CLASS_AD;
 }

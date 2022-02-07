@@ -8,7 +8,7 @@ void	Cat::makeSound(void) const {
 	std::cout << GRN << "Meow-meow" << NC << std::endl;
 }
 
-Brain	*Cat::getBrain(void) const {
+Brain*	Cat::getBrain(void) const {
 	return mBrain;
 }
 
@@ -27,7 +27,7 @@ Cat::Cat(Cat const & obj): Animal("Cat") {
 Cat	&Cat::operator=(Cat const & obj) {
 	std::cout << GRN << "Cat assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mType = obj.mType;
+		type = obj.type;
 		*mBrain = *obj.mBrain;
 	}
 	return *this;

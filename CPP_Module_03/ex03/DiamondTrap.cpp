@@ -23,9 +23,9 @@ DiamondTrap::DiamondTrap(void): ClapTrap(), ScavTrap(), FragTrap() {
 	mEP = SCAV_CLASS_EP;
 	mAD = FRAG_CLASS_AD;
 
-	*const_cast<unsigned int *>(&mmaxHP) = FRAG_CLASS_HP;
-	*const_cast<unsigned int *>(&mmaxEP) = SCAV_CLASS_EP;
-	*const_cast<unsigned int *>(&mmaxAD) = FRAG_CLASS_AD;
+	mmaxHP = FRAG_CLASS_HP;
+	mmaxEP = SCAV_CLASS_EP;
+	mmaxAD = FRAG_CLASS_AD;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const & obj) {

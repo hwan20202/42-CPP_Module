@@ -17,10 +17,10 @@ Dog::Dog(Dog const & obj) {
 	*this = obj;
 }
 
-Dog	&Dog::operator=(Dog const & obj) {
+Dog&	Dog::operator=(Dog const & obj) {
 	std::cout << CYN << "Dog assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mType = obj.mType;
+		type = obj.type;
 	}
 	return *this;
 }

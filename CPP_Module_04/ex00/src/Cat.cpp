@@ -17,10 +17,10 @@ Cat::Cat(Cat const & obj) {
 	*this = obj;
 }
 
-Cat	&Cat::operator=(Cat const & obj) {
+Cat&	Cat::operator=(Cat const & obj) {
 	std::cout << GRN << "Cat assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mType = obj.mType;
+		type = obj.type;
 	}
 	return *this;
 }

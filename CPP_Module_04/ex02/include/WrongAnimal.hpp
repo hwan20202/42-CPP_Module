@@ -3,12 +3,11 @@
 
 #include <string>
 
-class WrongAnimal
-{
+class WrongAnimal {
 protected:
-	std::string	mType;
+	std::string	type;
 public:
-	void	makeSound(void) const;
+	void			makeSound(void) const;
 	std::string		getType(void) const;
 
 	WrongAnimal(void);

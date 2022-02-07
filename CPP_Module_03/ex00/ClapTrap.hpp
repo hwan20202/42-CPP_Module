@@ -15,9 +15,9 @@ private:
 	int			mEP;
 	int			mAD;
 
-	unsigned int const	mmaxHP;
-	unsigned int const	mmaxEP;
-	unsigned int const	mmaxAD;
+	unsigned int	mmaxHP;
+	unsigned int	mmaxEP;
+	unsigned int	mmaxAD;
 public:
 	void		attack(std::string const & target) const;
 	void		takeDamage(unsigned int const amount);

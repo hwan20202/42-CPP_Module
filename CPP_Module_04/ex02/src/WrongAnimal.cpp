@@ -5,7 +5,7 @@
 #define NC "\e[0m"
 
 std::string		WrongAnimal::getType(void) const {
-	return mType;
+	return type;
 }
 
 void			WrongAnimal::makeSound(void) const {
@@ -16,7 +16,7 @@ WrongAnimal::WrongAnimal(void) {
 	std::cout << RED << "WrongAnimal default constructor called" << NC << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type): mType(type) {
+WrongAnimal::WrongAnimal(std::string _type): type(_type) {
 	std::cout << RED << "WrongAnimal constructor taking string parameter called" << NC << std::endl;
 }
 
@@ -26,11 +26,10 @@ WrongAnimal::WrongAnimal(WrongAnimal const & obj) {
 	*this = obj;
 }
 
-
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const & obj) {
 	std::cout << RED << "WrongAnimal assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mType = obj.mType;
+		type = obj.type;
 	}
 	return *this;
 }

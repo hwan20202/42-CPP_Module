@@ -10,7 +10,7 @@ public:
 
 	Dog(void);
 	Dog(Dog const & obj);
-	Dog	&operator=(Dog const & obj);
+	Dog&	operator=(Dog const & obj);
 	virtual ~Dog();
 };
 

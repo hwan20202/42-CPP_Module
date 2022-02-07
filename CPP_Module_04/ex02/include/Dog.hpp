@@ -2,15 +2,15 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
-// #include "Brain.hpp"
+#include "Brain.hpp"
 
-class Dog: public Animal
-{
+class Dog: public Animal {
 private:
-	// Brain	*mBrain;
+	Brain	*mBrain;
 
 public:
 	virtual void	makeSound(void) const;
+	virtual Brain*	getBrain(void) const;
 
 	Dog(void);
 	Dog(Dog const & obj);

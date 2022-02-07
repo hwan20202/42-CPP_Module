@@ -15,9 +15,9 @@ protected:
 	int			mEP;
 	int			mAD;
 
-	unsigned int const	mmaxHP;
-	unsigned int const	mmaxEP;
-	unsigned int const	mmaxAD;
+	unsigned int	mmaxHP;
+	unsigned int	mmaxEP;
+	unsigned int	mmaxAD;
 public:
 	virtual void		attack(std::string const & target) const;
 	virtual void		takeDamage(unsigned int const amount);

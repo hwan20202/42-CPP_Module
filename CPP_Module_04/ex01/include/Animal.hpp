@@ -3,19 +3,19 @@
 
 #include <string>
 
-class Animal
-{
+class Animal {
 protected:
-	std::string	mType;
+	std::string	type;
 public:
 	virtual void	makeSound(void) const;
 	std::string		getType(void) const;
 
 	Animal(void);
-	Animal(std::string type);
 	Animal(Animal const & obj);
-	Animal &operator=(Animal const & obj);
+	Animal&	operator=(Animal const & obj);
 	virtual ~Animal(void);
+
+	Animal(std::string type);
 };
 
 #endif

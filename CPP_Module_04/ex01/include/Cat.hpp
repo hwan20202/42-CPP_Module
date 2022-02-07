@@ -4,14 +4,13 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat: public Animal
-{
+class Cat: public Animal {
 private:
 	Brain	*mBrain;
 	
 public:
 	virtual void	makeSound(void) const;
-
+	
 	Brain	*getBrain(void) const;
 
 	Cat(void);

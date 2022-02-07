@@ -18,10 +18,10 @@ WrongCat::WrongCat(WrongCat const & obj) {
 	*this = obj;
 }
 
-WrongCat	&WrongCat::operator=(WrongCat const & obj) {
+WrongCat&	WrongCat::operator=(WrongCat const & obj) {
 	std::cout << REDB << "WrongCat assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mType = obj.mType;
+		type = obj.type;
 	}
 	return *this;
 }

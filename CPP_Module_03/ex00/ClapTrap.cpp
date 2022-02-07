@@ -23,7 +23,7 @@ void	ClapTrap::beRepaired(unsigned int const amount) {
 	std::cout << "ClapTrap <" << mName
 				<< "> be repaired  <" << amount << "> points!" << std::endl;
 	mHP += amount;
-	if (mHP > static_cast<int>(mmaxHP))
+	if (mHP > (int)mmaxHP)
 		mHP = mmaxHP;
 	std::cout << "ClapTrap <" << mName
 			<< "> current HP is <" << mHP << ">" << std::endl;

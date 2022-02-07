@@ -23,7 +23,7 @@ void	FragTrap::beRepaired(unsigned int const amount) {
 	std::cout << CYN << "FragTrap <" << mName
 				<< "> be repaired  <" << amount << "> points!" << NC << std::endl;
 	mHP += amount;
-	if (mHP > static_cast<int>(mmaxHP))
+	if (mHP > (int)mmaxHP)
 		mHP = mmaxHP;
 	std::cout << CYN << "FragTrap <" << mName
 			<< "> current HP is <" << mHP << ">" << NC << std::endl;
@@ -42,9 +42,9 @@ FragTrap::FragTrap(void): ClapTrap(FRAG_CLASS_NAME) {
 	mHP = FRAG_CLASS_HP;
 	mEP = FRAG_CLASS_EP;
 	mAD = FRAG_CLASS_AD;
-	*const_cast<unsigned int*>(&mmaxHP) = FRAG_CLASS_HP;
-	*const_cast<unsigned int*>(&mmaxEP) = FRAG_CLASS_EP;
-	*const_cast<unsigned int*>(&mmaxAD) = FRAG_CLASS_AD;
+	mmaxHP = FRAG_CLASS_HP;
+	mmaxEP = FRAG_CLASS_EP;
+	mmaxAD = FRAG_CLASS_AD;
     std::cout << CYN << "FragTrap default constructor called" << NC << std::endl;
 }
 
@@ -77,7 +77,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name) {
 	mHP = FRAG_CLASS_HP;
 	mEP = FRAG_CLASS_EP;
 	mAD = FRAG_CLASS_AD;
-	*const_cast<unsigned int*>(&mmaxHP) = FRAG_CLASS_HP;
-	*const_cast<unsigned int*>(&mmaxEP) = FRAG_CLASS_EP;
-	*const_cast<unsigned int*>(&mmaxAD) = FRAG_CLASS_AD;
+	mmaxHP = FRAG_CLASS_HP;
+	mmaxEP = FRAG_CLASS_EP;
+	mmaxAD = FRAG_CLASS_AD;
 }

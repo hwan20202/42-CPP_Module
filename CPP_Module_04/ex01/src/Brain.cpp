@@ -1,6 +1,13 @@
 #include "Brain.hpp"
-
 #include <iostream>
+
+std::string	Brain::getIdea(int idx) {
+	return idea[idx];
+}
+
+void		Brain::setIdea(int idx, std::string content) {
+	idea[idx] = content;
+}
 
 Brain::Brain(void) {
 	std::cout << "Brain default constructor called" << std::endl;
