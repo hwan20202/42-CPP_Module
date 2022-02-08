@@ -85,6 +85,9 @@ ClapTrap& ClapTrap::operator=(ClapTrap const & obj) {
 		mHP = obj.GetHP();
 		mEP = obj.GetEP();
 		mAD = obj.GetAD();
+		mmaxHP = obj.mmaxHP;
+		mmaxEP = obj.mmaxEP;
+		mmaxAD = obj.mmaxAD;
 	}
 	return *this;
 }

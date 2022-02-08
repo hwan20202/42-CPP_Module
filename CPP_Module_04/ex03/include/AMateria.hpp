@@ -9,9 +9,8 @@ class AMateria {
 protected:
 	std::string	mType;
 	bool		equiped;
-public:
-	AMateria(std::string const & type);
 
+public:
 	std::string const &	getType() const;
 	virtual AMateria*	clone() const = 0;
 	virtual void		use(ICharacter& target) const;
@@ -19,9 +18,11 @@ public:
 	void				unequip(void);
 	bool				isequiped(void);
 
+	AMateria(std::string const & type);
+	
 	AMateria(void);
 	AMateria(AMateria const & obj);
-	AMateria	&operator=(AMateria const & obj);
+	AMateria&	operator=(AMateria const & obj);
 	virtual ~AMateria();
 };
 

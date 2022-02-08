@@ -55,12 +55,7 @@ ScavTrap::ScavTrap(ScavTrap const & obj) {
 ScavTrap	&ScavTrap::operator=(ScavTrap const & obj) {
 	std::cout << GRN << "ScavTrap assignation operator called" << NC << std::endl;
 	if (this != &obj)
-	{
-		mName = obj.mName;
-		mHP = obj.mHP;
-		mEP = obj.mEP;
-		mAD = obj.mAD;
-	}
+		*(ClapTrap*)this = *(ClapTrap*)(&obj);
 	return *this;
 }
 

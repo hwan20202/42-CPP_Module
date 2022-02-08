@@ -15,7 +15,7 @@ public:
 	Animal&	operator=(Animal const & obj);
 	virtual ~Animal(void);
 
-	Animal(std::string type);
+	Animal(std::string const & type);
 };
 
 #endif

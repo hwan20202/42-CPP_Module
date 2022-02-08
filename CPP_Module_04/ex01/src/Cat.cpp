@@ -1,5 +1,7 @@
 #include "Cat.hpp"
+
 #include <iostream>
+#include "Brain.hpp"
 
 #define NC "\e[0m"
 #define GRN "\e[0;32m"
@@ -12,6 +14,9 @@ Brain*	Cat::getBrain(void) const {
 	return mBrain;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
 
 Cat::Cat(): Animal("Cat") {
 	mBrain = new Brain();
@@ -24,7 +29,7 @@ Cat::Cat(Cat const & obj): Animal("Cat") {
 	*this = obj;
 }
 
-Cat	&Cat::operator=(Cat const & obj) {
+Cat&	Cat::operator=(Cat const & obj) {
 	std::cout << GRN << "Cat assignation operator called" << NC << std::endl;
 	if (this != &obj) {
 		type = obj.type;

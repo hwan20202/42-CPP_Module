@@ -1,4 +1,5 @@
 #include "MateriaSource.hpp"
+#include "AMateria.hpp"
 #include <iostream>
 
 #define GRN	"\e[0;32m"
@@ -34,6 +35,7 @@ MateriaSource::MateriaSource(void) {
 
 MateriaSource::MateriaSource(MateriaSource const & obj) {
 	std::cout << "MateriaSource copy constructor called" << std::endl;
+	memset(materias, 0, sizeof(AMateria*) * maxMateriasSize);
 	*this = obj;
 }
 

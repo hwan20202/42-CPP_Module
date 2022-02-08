@@ -2,10 +2,10 @@
 #define IMATERIASOURCE_HPP
 
 #include <string>
-#include "AMateria.hpp"
 
-class IMateriaSource
-{
+class AMateria;
+
+class IMateriaSource {
 public:
 	virtual ~IMateriaSource() {}
 	virtual void		learnMateria(AMateria*) = 0;

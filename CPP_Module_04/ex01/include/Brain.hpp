@@ -5,10 +5,13 @@
 
 class Brain {
 private:
-	std::string	idea[100];
+	static unsigned int const	maxIdea = 100;
+	std::string	idea[maxIdea];
+
 public:
 	std::string	getIdea(int idx);
 	void		setIdea(int idx, std::string content);
+	static unsigned int	getMaxIdea(void);
 
 	Brain(void);
 	Brain(Brain const & obj);

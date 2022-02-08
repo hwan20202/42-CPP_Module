@@ -1,5 +1,6 @@
 #include "Cat.hpp"
 #include <iostream>
+#include "Brain.hpp"
 
 #define NC "\e[0m"
 #define GRN "\e[0;32m"
@@ -12,6 +13,9 @@ Brain*	Cat::getBrain(void) const {
 	return mBrain;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
 
 Cat::Cat(): Animal("Cat") {
 	mBrain = new Brain();

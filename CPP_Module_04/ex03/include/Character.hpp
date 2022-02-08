@@ -12,6 +12,8 @@ private:
 	AMateria*	inventory[4];
 
 	static const int	maxInventorySize = 4;
+	
+
 public:
 	virtual std::string const &	getName() const;
 	virtual void				equip(AMateria* m);

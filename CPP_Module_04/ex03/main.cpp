@@ -1,4 +1,4 @@
-// #include "AMateria.hpp"
+#include <iostream>
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
@@ -10,7 +10,17 @@
 #define NC "\e[0m"
 
 
-int main(void) {
+void	test1(void) {
+	AMateria *anIce = new Ice();
+	AMateria *aCure = new Cure();
+
+	*anIce = *aCure;
+	std::cout << anIce->getType() << std::endl;
+	delete anIce;
+	delete aCure;
+}
+
+void	test2(void) {
 	IMateriaSource* src = new MateriaSource();
 	MateriaSource* src2 = new MateriaSource(*(MateriaSource*)(src));
 	AMateria*	srcCollector[10];
@@ -52,6 +62,19 @@ int main(void) {
 	john->use(0, *me);
 	john->use(1, *me);
 
+	tmp = src->createMateria("ice");
+	john->equip(tmp);
+	srcCollector[4] = tmp;
+	tmp = src->createMateria("ice");
+	john->equip(tmp);
+	srcCollector[5] = tmp;
+	tmp = src->createMateria("ice");
+	john->equip(tmp);
+	srcCollector[6] = tmp;
+	tmp = src->createMateria("ice");
+	john->equip(tmp);
+	srcCollector[7] = tmp;
+
 	for (int idx = 0; idx < 10; idx++) {
 		if (srcCollector[idx]) {
 			if (!srcCollector[idx]->isequiped())
@@ -63,11 +86,16 @@ int main(void) {
 	}
 
 	delete john;
-
 	delete src2;
 	delete bob;
 	delete me;
 	delete src;
+}
 
+int main(void) {
+	test1();
+	std::cout << std::endl << std::endl;
+	test2();
+	while (1);
 	return 0;
 }

@@ -29,9 +29,12 @@ void				Character::equip(AMateria* m) {
 		}
 	}
 }
+
 void				Character::unequip(int idx) {
-	if (idx < 0 || maxInventorySize <= idx)
+	if (idx < 0 || maxInventorySize <= idx) {
+		std::cout << RED << "Index out of range" << NC << std::endl;
 		return ;
+	}
 	if (inventory[idx]) {
 		std::cout << GRN << idx << "'s << " << inventory[idx]->getType() << " >> unequiped" << NC << std::endl;
 		inventory[idx]->unequip();
@@ -40,8 +43,10 @@ void				Character::unequip(int idx) {
 }
 
 void				Character::use(int idx, ICharacter& target) {
-	if (idx < 0 || maxInventorySize <= idx)
+	if (idx < 0 || maxInventorySize <= idx) {
+		std::cout << RED << "Index out of range" << NC << std::endl;
 		return ;
+	}
 	if (inventory[idx]) {
 		std::cout << GRN;
 		inventory[idx]->use(target);
@@ -79,7 +84,7 @@ Character&	Character::operator=(Character const & obj) {
 }
 
 Character::~Character() {
-	std::cout << "Character destructor called" << std::endl;
+	std::cout << mName << "Character destructor called" << std::endl;
 	for (int idx = 0; idx < maxInventorySize; idx++) {
 		if (inventory[idx]) {
 			delete inventory[idx];

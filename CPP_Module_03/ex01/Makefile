@@ -1,6 +1,6 @@
 NAME	=	scavtrap
 CC		=	clang++
-CFLAGS	=	-Wshadow -std=c++98 #-Wall -Wextra -Werror 
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	ClapTrap.cpp\
 			ScavTrap.cpp\
 			main.cpp

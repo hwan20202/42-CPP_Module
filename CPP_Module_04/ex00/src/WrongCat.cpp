@@ -4,10 +4,13 @@
 #define REDB "\e[41m"
 #define NC "\e[0m"
 
-
 void	WrongCat::makeSound(void) const {
 	std::cout << REDB << "Meow-meow" << NC << std::endl;
 }
+
+/************************************/
+/*				OCCF				*/
+/************************************/
 
 WrongCat::WrongCat(): WrongAnimal("WrongCat") {
 	std::cout << REDB << "WrongCat default constructor called" << NC << std::endl;
