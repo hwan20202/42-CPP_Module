@@ -1,6 +1,6 @@
 NAME	=	bureaucrat
 CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror -I./include -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	Bureaucrat.cpp\
 			Form.cpp\
 			GradeTooHighException.cpp\
@@ -13,7 +13,7 @@ OBJS	=	Bureaucrat.o\
 			main.o
 
 .cpp.o	:
-	$(CC) $(CFLAGS)	-c $< -o $@
+	$(CC) $(CFLAGS) -I./include	-c $< -o $@
 
 all		:	$(NAME)
 

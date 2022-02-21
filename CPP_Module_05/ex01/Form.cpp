@@ -3,17 +3,24 @@
 
 #include <iostream>
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute)
-	:	mName(name), mIsSigned(false), mGradeToSign(gradeToSign), mGradeToExecute(gradeToExecute) {
-		checkGradeRange(mGradeToSign);
-		checkGradeRange(mGradeToExecute);
-	std::cout << "Form default constructor called" << std::endl;
-}
+/********************************************/
+/*					OCCF					*/
+/********************************************/
 
 Form::~Form() {
 	std::cout << "Form destructor called" << std::endl;
 }
 
+/********************************************/
+/*					other					*/
+/********************************************/
+
+Form::Form(std::string name, int gradeToSign, int gradeToExecute)
+	:	mName(name), mIsSigned(false), mGradeToSign(gradeToSign), mGradeToExecute(gradeToExecute) {
+		checkGradeRange(mGradeToSign);
+		checkGradeRange(mGradeToExecute);
+	std::cout << "Form standard constructor called" << std::endl;
+}
 
 std::ostream& operator<<(std::ostream& os, Form const & rhs) {
 	return os << "Name : " << rhs.getName() << std::endl
@@ -21,6 +28,10 @@ std::ostream& operator<<(std::ostream& os, Form const & rhs) {
 				<< "Grade to sign : " << rhs.getGradeToSign() << std::endl
 				<< "Grade to execute : " << rhs.getGradeToExecute() << std::endl;
 }
+
+/********************************************/
+/*				public method				*/
+/********************************************/
 
 std::string	Form::getName(void) const {
 	return mName;
@@ -44,6 +55,10 @@ void		Form::beSigned(Bureaucrat const & bur) {
 	else
 		throw Bureaucrat::GradeTooLowException();
 }
+
+/********************************************/
+/*				protected method			*/
+/********************************************/
 
 void	Form::checkGradeRange(int const & grade) const {
 	if (grade < Bureaucrat::topGrade)

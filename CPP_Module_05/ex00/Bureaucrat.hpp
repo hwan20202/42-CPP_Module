@@ -12,6 +12,7 @@ private:
 	static int const	topGrade = 1;
 	static int const	bottomGrade = 150;
 
+	Bureaucrat(void);
 
 public:
 	std::string getName(void) const;
@@ -19,7 +20,6 @@ public:
 	void		increment(void);
 	void		decrement(void);
 
-	Bureaucrat(void);
 	Bureaucrat(Bureaucrat const & rhs);
 	Bureaucrat& operator=(Bureaucrat const & rhs);
 	~Bureaucrat();

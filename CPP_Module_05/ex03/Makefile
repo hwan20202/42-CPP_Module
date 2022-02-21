@@ -12,7 +12,6 @@ SRCS	=	src/Bureaucrat.cpp\
 			src/GradeTooLowException.cpp\
 			src/NoneExistForm.cpp\
 			src/Intern.cpp\
-			src/Manual.cpp\
 			main.cpp
 OBJS	=	$(SRCS:%.cpp=%.o)
 

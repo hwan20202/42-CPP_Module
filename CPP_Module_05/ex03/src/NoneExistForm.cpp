@@ -1,5 +1,5 @@
-#include "Manual.hpp"
+#include "Intern.hpp"
 
-const char * Manual::NoneExistForm::what() const throw() {
+const char * Intern::NoneExistForm::what() const throw() {
 	return "None Exist Form";
 }

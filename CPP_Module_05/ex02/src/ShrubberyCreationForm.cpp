@@ -61,4 +61,5 @@ void		ShrubberyCreationForm::action(void) const {
 		<< "   (_)                    (_)" << std::endl
 		<< "   Corwyn Yasuo Miyagishima" << std::endl;
 	std::cout << "Shrubbery at " << mTarget << std::endl;
+	ofs.close();
 }

@@ -3,13 +3,7 @@
 
 #include "Base.hpp"
 
-class C : public Base {
-private:
-	/* data */
-public:
-	C(/* args */);
-	~C();
-};
+class C : public Base {};
 
 
 #endif

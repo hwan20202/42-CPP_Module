@@ -11,6 +11,8 @@ private:
 	std::string const name;
 	int	grade;
 
+	Bureaucrat(void);
+	
 public:
 	static int const	topGrade = 1;
 	static int const	bottomGrade = 150;
@@ -23,7 +25,6 @@ public:
 	bool		signForm(Form &) const;
 	bool		executeForm(Form const &) const;
 
-	Bureaucrat(void);
 	Bureaucrat(Bureaucrat const & rhs);
 	Bureaucrat& operator=(Bureaucrat const & rhs);
 	~Bureaucrat();

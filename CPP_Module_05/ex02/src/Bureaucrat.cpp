@@ -2,9 +2,9 @@
 #include "Form.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(void): name(""), grade(100) {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
-}
+/********************************************/
+/*					OCCF					*/
+/********************************************/
 
 Bureaucrat::Bureaucrat(Bureaucrat const & rhs) {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
@@ -23,6 +23,10 @@ Bureaucrat::~Bureaucrat() {
 	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
+/********************************************/
+/*					other					*/
+/********************************************/
+
 Bureaucrat::Bureaucrat(std::string _name, int _grade): name(_name), grade(_grade) {
 	std::cout << "Bureaucrat constructor taking parameters called" << std::endl;
 	if (grade < topGrade)
@@ -35,6 +39,10 @@ Bureaucrat::Bureaucrat(std::string _name, int _grade): name(_name), grade(_grade
 std::ostream& operator<<(std::ostream& os, Bureaucrat& rhs) {
 	return os << "< " << rhs.getName() << " > bureaucrat have grade < " << rhs.getGrade() << " >"; 
 }
+
+/********************************************/
+/*				public method				*/
+/********************************************/
 
 std::string Bureaucrat::getName(void) const {
 	return name;
@@ -61,7 +69,7 @@ bool		Bureaucrat::signForm(Form& form) const {
 		form.beSigned(*this);
 		std::cout << "<" << name << "> signs <" << form.getName() << ">" << std::endl;
 		return true;
-	} catch (std::exception& e) {
+	} catch(std::exception& e) {
 		std::cout << "<" << name << "> cannot sign <" << form.getName() << "> because <" << e.what() << ">" << std::endl;
 		return false;
 	}
@@ -77,4 +85,3 @@ bool		Bureaucrat::executeForm(Form const & form) const {
 		return false;
 	}
 }
-

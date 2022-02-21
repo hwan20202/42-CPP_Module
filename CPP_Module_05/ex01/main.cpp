@@ -27,25 +27,6 @@ Form* makeForm(std::string _name, int _gradeToSign, int _gradeToExecute) {
 	return f;
 }
 
-void increaseBureaucrat(Bureaucrat& b) {
-	try {
-		b.increment();
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-}
-
-void decreaseBureaucrat(Bureaucrat& b) {
-	try {
-		b.decrement();
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-}
-
-
-
-
 int main() {
 	Bureaucrat	*b1;
 	Bureaucrat	*b2;
@@ -62,8 +43,8 @@ int main() {
 
 	std::cout << *f1 << std::endl;
 
-	b2->signform(*f1);
-	b1->signform(*f1);
+	b2->signForm(*f1);
+	b1->signForm(*f1);
 
 	std::cout << *f1 << std::endl;
 

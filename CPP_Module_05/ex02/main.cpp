@@ -1,10 +1,11 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
-#include <exception>
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
+#include <iostream>
+#include <exception>
 
 #define NC "\e[0m"
 #define GRN "\e[0;32m"
@@ -57,23 +58,6 @@ Form* makePresidentialPardonForm(std::string target) {
 	};
 	return f;
 }
-
-void increaseBureaucrat(Bureaucrat& b) {
-	try {
-		b.increment();
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-}
-
-void decreaseBureaucrat(Bureaucrat& b) {
-	try {
-		b.decrement();
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-}
-
 
 void	testShrubberyCreationForm() {
 	Bureaucrat	*b1;
@@ -207,4 +191,4 @@ int main() {
 	testPresidentialPardonForm();
 	std::cout << NC;
 	return 0;
-}	
+}

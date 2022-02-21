@@ -23,7 +23,6 @@ public:
 	Form(std::string, int, int);
 	~Form();
 
-
 	std::string	getName(void) const;
 	bool		getIsSigned(void) const;
 	int			getGradeToSign(void) const;

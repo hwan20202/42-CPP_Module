@@ -34,6 +34,7 @@ public:
 	virtual void	action(void) const = 0;
 	virtual Form*	create(std::string const &) const = 0;
 
+
 	class NoneSignedException
 	:	public std::exception {
 		public:
