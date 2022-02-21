@@ -1,16 +1,17 @@
 NAME	=	bureaucrat
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -I./include -std=c++98
-SRCS	=	Bureaucrat.cpp\
-			Form.cpp\
-			GradeTooHighException.cpp\
-			GradeTooLowException.cpp\
+SRCS	=	src/Bureaucrat.cpp\
+			src/Form.cpp\
+			src/NoneSignedException.cpp\
+			src/ShrubberyCreationForm.cpp\
+			src/RobotomyRequestForm.cpp\
+			src/PresidentialPardonForm.cpp\
+			src/FileOpenFailed.cpp\
+			src/GradeTooHighException.cpp\
+			src/GradeTooLowException.cpp\
 			main.cpp
-OBJS	=	Bureaucrat.o\
-			Form.o\
-			GradeTooHighException.o\
-			GradeTooLowException.o\
-			main.o
+OBJS	=	$(SRCS:%.cpp=%.o)
 
 .cpp.o	:
 	$(CC) $(CFLAGS)	-c $< -o $@

@@ -1,24 +1,36 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
 Bureaucrat* makeBureaucrat(std::string _name, int _grade) {
 	Bureaucrat* b;
 
 	try {
 		b = new Bureaucrat(_name, _grade);
-	}
-	catch (std::exception& e) {
+	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
+		return 0;
 	};
 	return b;
+}
+
+Form* makeForm(std::string _name, int _gradeToSign, int _gradeToExecute) {
+	Form* f;
+
+	try {
+		f = new Form(_name, _gradeToSign, _gradeToExecute);
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+		return 0;
+	};
+	return f;
 }
 
 void increaseBureaucrat(Bureaucrat& b) {
 	try {
 		b.increment();
-	}
-	catch (std::exception& e) {
+	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 }
@@ -26,41 +38,42 @@ void increaseBureaucrat(Bureaucrat& b) {
 void decreaseBureaucrat(Bureaucrat& b) {
 	try {
 		b.decrement();
-	}
-	catch (std::exception& e) {
+	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 }
 
+
+
+
 int main() {
-	Bureaucrat *b1;
-	Bureaucrat *b2;
+	Bureaucrat	*b1;
+	Bureaucrat	*b2;
+	Form		*f1;
+	Form		*f2;
+	Form		*f3;
 
-	b1 = makeBureaucrat("b1", 150);
-	b2 = makeBureaucrat("b2", 1);
 
-	std::cout << *b1 << std::endl
-				<< *b2 << std::endl;
+	b1 = makeBureaucrat("b1", 50);
+	b2 = makeBureaucrat("b2", 100);
+	f1 = makeForm("f1", 75, 75);
+	f2 = makeForm("f2", -1, 75);
+	f3 = makeForm("f3", 75, 160);
 
-	increaseBureaucrat(*b1);
-	decreaseBureaucrat(*b2);
+	std::cout << *f1 << std::endl;
 
-	std::cout << *b1 << std::endl
-			<< *b2 << std::endl;
+	b2->signform(*f1);
+	b1->signform(*f1);
 
-	decreaseBureaucrat(*b1);
-	decreaseBureaucrat(*b1);
-	increaseBureaucrat(*b2);
-	increaseBureaucrat(*b2);
-
-	std::cout << *b1 << std::endl
-			<< *b2 << std::endl;
+	std::cout << *f1 << std::endl;
 
 	delete b1;
 	delete b2;
-
-	b1 = makeBureaucrat("b1", 151);
-	b2 = makeBureaucrat("b2", 0);
-
+	if (f1)
+		delete f1;
+	if (f2)
+		delete f2;
+	if (f3)
+		delete f3;
 	return 0;
-}
+}	

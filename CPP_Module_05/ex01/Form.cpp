@@ -4,7 +4,9 @@
 #include <iostream>
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute)
-	:	mIsSigned(false), mGradeToSign(0), mGradeToExecute(0) {
+	:	mName(name), mIsSigned(false), mGradeToSign(gradeToSign), mGradeToExecute(gradeToExecute) {
+		checkGradeRange(mGradeToSign);
+		checkGradeRange(mGradeToExecute);
 	std::cout << "Form default constructor called" << std::endl;
 }
 
@@ -36,10 +38,16 @@ int			Form::getGradeToExecute(void) const {
 	return mGradeToExecute;
 }
 
-void		Form::beSigned(Bureaucrat& bur) {
+void		Form::beSigned(Bureaucrat const & bur) {
 	if (mGradeToSign >= bur.getGrade())
 		mIsSigned = true;
 	else
 		throw Bureaucrat::GradeTooLowException();
 }
 
+void	Form::checkGradeRange(int const & grade) const {
+	if (grade < Bureaucrat::topGrade)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > Bureaucrat::bottomGrade)
+		throw Bureaucrat::GradeTooLowException();	
+}

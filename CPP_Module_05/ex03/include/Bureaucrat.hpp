@@ -21,6 +21,7 @@ public:
 	void		decrement(void);
 
 	bool		signForm(Form &) const;
+	bool		executeForm(Form const &) const;
 
 	Bureaucrat(void);
 	Bureaucrat(Bureaucrat const & rhs);
