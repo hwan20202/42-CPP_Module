@@ -12,6 +12,10 @@ void			WrongAnimal::makeSound(void) const {
 	std::cout << RED << "some WrongAnimal sound" << NC << std::endl;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
+
 WrongAnimal::WrongAnimal(void) {
 	std::cout << RED << "WrongAnimal default constructor called" << NC << std::endl;
 }

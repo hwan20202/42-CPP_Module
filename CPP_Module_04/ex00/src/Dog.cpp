@@ -8,6 +8,10 @@ void	Dog::makeSound(void) const {
 	std::cout << CYN << "Bow-wow" << NC << std::endl;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
+
 Dog::Dog(): Animal("Dog") {
 	std::cout << CYN << "Dog default constructor called" << NC << std::endl;
 }

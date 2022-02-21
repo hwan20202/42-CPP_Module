@@ -8,6 +8,10 @@ std::string		WrongAnimal::getType(void) const {
 	return type;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
+
 void			WrongAnimal::makeSound(void) const {
 	std::cout << RED << "some WrongAnimal sound" << NC << std::endl;
 }

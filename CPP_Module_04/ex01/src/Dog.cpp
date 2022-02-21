@@ -1,5 +1,7 @@
 #include "Dog.hpp"
+
 #include <iostream>
+#include "Brain.hpp"
 
 #define CYN "\e[0;36m"
 #define NC "\e[0m"
@@ -12,6 +14,9 @@ Brain*	Dog::getBrain(void) const {
 	return mBrain;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
 
 Dog::Dog(): Animal("Dog") {
 	mBrain = new Brain();
@@ -24,7 +29,7 @@ Dog::Dog(Dog const & obj) {
 	*this = obj;
 }
 
-Dog	&Dog::operator=(Dog const & obj) {
+Dog&	Dog::operator=(Dog const & obj) {
 	std::cout << CYN << "Dog assignation operator called" << NC << std::endl;
 	if (this != &obj) {
 		type = obj.type;

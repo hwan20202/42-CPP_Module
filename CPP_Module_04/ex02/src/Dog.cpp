@@ -1,5 +1,6 @@
 #include "Dog.hpp"
 #include <iostream>
+#include "Brain.hpp"
 
 #define CYN "\e[0;36m"
 #define NC "\e[0m"
@@ -12,6 +13,9 @@ Brain*	Dog::getBrain(void) const {
 	return mBrain;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
 
 Dog::Dog(): Animal("Dog") {
 	mBrain = new Brain();

@@ -30,18 +30,19 @@ AMateria::AMateria(void): mType(""), equiped(false) {
 	std::cout << "AMateria defualt constructor called" << std::endl;
 }
 
-AMateria::AMateria(AMateria const & obj) {
-	std::cout << "AMateria copy constructor called" << std::endl;
+AMateria::AMateria(AMateria const & obj): equiped(false) {
+	std::cout << "AMateria copy constructor called" << std::endl
+				<< "but doesn't make sense" << std::endl;
 	*this = obj;
 }
 
-AMateria	&AMateria::operator=(AMateria const & obj) {
-	std::cout << "AMateria assignation operator called" << std::endl;
-	if (this != &obj) {
-		mType = obj.mType;
-	}
+AMateria&	AMateria::operator=(AMateria const & obj) {
+	std::cout << "AMateria assignation operator called" << std::endl
+				<< "but doesn't make sense" << std::endl;
+	(void)obj;
 	return *this;
 }
+
 AMateria::~AMateria() {
 	std::cout << "AMateria destructor called" << std::endl;
 }

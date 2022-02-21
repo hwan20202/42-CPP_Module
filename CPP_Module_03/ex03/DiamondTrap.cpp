@@ -44,11 +44,9 @@ DiamondTrap::DiamondTrap(DiamondTrap const & obj) {
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const & obj) {
 	std::cout << YEL << "DiamondTrap assignation operator called" << NC << std::endl;
 	if (this != &obj) {
-		mName = obj.mName;
+		*(ClapTrap*)this = *(ClapTrap*)(&obj);
 		ClapTrap::mName = obj.ClapTrap::mName;
-		mHP = obj.mHP;
-		mEP = obj.mEP;
-		mAD = obj.mAD;
+		mName = obj.mName;
 	}
 	return *this;
 }
@@ -68,7 +66,7 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(), ScavTrap(), FragTrap(), 
 	mEP = SCAV_CLASS_EP;
 	mAD = FRAG_CLASS_AD;
 
-	*const_cast<unsigned int *>(&mmaxHP) = FRAG_CLASS_HP;
-	*const_cast<unsigned int *>(&mmaxEP) = SCAV_CLASS_EP;
-	*const_cast<unsigned int *>(&mmaxAD) = FRAG_CLASS_AD;
+	mmaxHP = FRAG_CLASS_HP;
+	mmaxEP = SCAV_CLASS_EP;
+	mmaxAD = FRAG_CLASS_AD;
 }

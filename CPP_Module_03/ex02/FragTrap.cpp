@@ -55,12 +55,8 @@ FragTrap::FragTrap(FragTrap const & obj) {
 
 FragTrap &FragTrap::operator=(FragTrap const & obj) {
 	std::cout << CYN << "FragTrap assignation operator called" << NC << std::endl;
-	if (this != &obj) {
-		mName = obj.mName;
-		mHP = obj.mHP;
-		mEP = obj.mEP;
-		mAD = obj.mAD;
-	}
+	if (this != &obj)
+		*(ClapTrap*)this = *(ClapTrap*)(&obj);
 	return *this;
 }
 

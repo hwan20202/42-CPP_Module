@@ -6,6 +6,7 @@ void ShowStat(DiamondTrap& obj)
 	std::cout << "HP	: [" << obj.GetHP() << "]" << std::endl;
 	std::cout << "EP	: [" << obj.GetEP() << "]" << std::endl;
 	std::cout << "AD	: [" << obj.GetAD() << "]" << std::endl;
+	obj.whoAmI();
 }
 
 int main(void) {
@@ -30,8 +31,6 @@ int main(void) {
 	yesName.beRepaired(5);
 	yesName.beRepaired(6);
 	ShowStat(yesName);
-
-	yesName.whoAmI();
 
 	return 0;
 }

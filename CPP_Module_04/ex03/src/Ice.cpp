@@ -10,20 +10,20 @@ void		Ice::use(ICharacter& target) const {
 	std::cout << "* shoots an ice bolt at "<< target.getName() << " *" << std::endl;
 }
 
-Ice::Ice(void):AMateria("ice") {
+Ice::Ice(void):	AMateria("ice") {
 	std::cout << "Ice default constructor called" << std::endl;
 }
 
 Ice::Ice(Ice const & obj) {
-	std::cout << "Ice copy constructor called, but why?" << std::endl;
+	std::cout << "Ice copy constructor called" << std::endl
+				<< "but doesn't make sense" << std::endl;
 	*this = obj;
 }
 
 Ice&	Ice::operator=(Ice const & obj) {
-	std::cout << "Ice assignation operator called, but why?" << std::endl;
-	if (this != &obj) {
-		mType = obj.mType;
-	}
+	std::cout << "Ice assignation operator called" << std::endl
+				<< "but doesn't make sense" << std::endl;
+	(void)obj;
 	return *this;
 }
 

@@ -8,6 +8,10 @@ void	Cat::makeSound(void) const {
 	std::cout << GRN << "Meow-meow" << NC << std::endl;
 }
 
+/************************************/
+/*				OCCF				*/
+/************************************/
+
 Cat::Cat(): Animal("Cat") {
 	std::cout << GRN << "Cat default constructor called" << NC << std::endl;
 }
