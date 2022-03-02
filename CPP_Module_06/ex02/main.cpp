@@ -23,7 +23,7 @@ Base*	generate(void) {
 		std::cout << "generate class C" << std::endl;
 		return new C();
 	default:
-		throw std::exception();
+		return 0;
 	}
 }
 

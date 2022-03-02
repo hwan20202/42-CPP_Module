@@ -1,24 +1,40 @@
 #include "Data.hpp"
-
 #include <iostream>
 
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+
+uintptr_t	serialize(Data* ptr) {
+	return reinterpret_cast<uintptr_t>(ptr);
+}
+
+Data*		deserialize(uintptr_t raw) {
+	return reinterpret_cast<Data*>(raw);
+}
+
 int	main() {
-	Data*		player = new Data(std::string("jeokim"), 42.42, 24.24, 100, 0);
+	Data*		player = newData(std::string("jeokim"), 42.42, 24.24, 100, 0);
 	uintptr_t	uit;
 	Data*		copy;
 
-	std::cout << "player status(before serialization)" << std::endl
-				<< *player << std::endl;
-	std::cout << "player ptr(before serialization) : " << player << std::endl;
+	std::cout << CYN << "player status(before serialization)" << std::endl
+				<< NC << *player << std::endl
+				<< CYN << "player ptr(before serialization) : "
+				<< NC << player << std::endl;
 
 	uit = serialize(player);
-	std::cout  << "uit(dec) : " << uit << std::endl;
-	std::cout  << "uit(hex) : " << std::hex << uit << std::dec << std::endl;
+	std::cout << NC  << "uit(dec) : "
+				<< uit << std::endl
+				<< "uit(hex) : " << std::hex
+				<< RED << uit << std::dec << std::endl;
 
 	copy = deserialize(uit);
-	std::cout << "player ptr(after deserialization) : " << copy << std::endl;
-	std::cout << "player status(after deserialization)" << std::endl
-				<< *copy << std::endl;
+	std::cout << GRN << "player ptr(after deserialization) : "
+				<< NC << copy << std::endl
+				<< GRN << "player status(after deserialization)" << std::endl
+				<< NC << *copy << NC << std::endl;
 
 	delete player;
 	return 0;
