@@ -2,10 +2,25 @@
 #define EASYFIND_HPP
 
 #include <algorithm>
+#include <iterator>
+#include <exception>
+// #include <array>
+// #include <list>
+
+class	DoesNotFound: public std::exception {
+public:
+	const char * what() const throw();
+};
 
 template <typename T>
-T	easyfind(T t, int num) {
-	std::find(t.)
+typename T::iterator	easyfind(T t, int num) {
+	typename T::iterator it;
+
+	it = std::find(std::begin(t), std::end(t), num);
+	if (*it != num)
+		throw DoesNotFound();
+	return it;
 }
+
 
 #endif
