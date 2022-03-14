@@ -17,6 +17,22 @@ Span::~Span() {
 
 }
 
+std::pair<std::vector<int>::iterator, std::vector<int>::iterator> Span::minmax(
+	std::vector<int>::iterator first, std::vector<int>::iterator last) const {
+	std::vector<int>::iterator min = first;
+	std::vector<int>::iterator max = first;
+
+	if (first > last)
+		throw std::out_of_range("first iterator is later than last iterator");
+	for (std::vector<int>::iterator it = first + 1; it != last; it++) {
+		if (*it < *min)
+			min = it;
+		if (*it > *max)
+			max = it;
+	}
+	return std::pair<std::vector<int>::iterator, std::vector<int>::iterator>(min, max);
+}
+
 void	Span::addNumber(int num) {
 	if (data.size() >= data.max_size())
 		throw std::out_of_range("Out of range");

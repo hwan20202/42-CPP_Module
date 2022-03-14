@@ -12,7 +12,7 @@ int	main() {
 
 	*std::begin(arr) = 3;
 	try {
-
+		easyfind(arr, 3);
 		std::cout << *it << std::endl;
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
