@@ -1,6 +1,6 @@
 NAME	=	bureaucrat
 CC		=	clang++
-CFLAGS	=	-Wall -Wextra -Werror -I./include -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	src/Bureaucrat.cpp\
 			src/Form.cpp\
 			src/NoneSignedException.cpp\
@@ -16,7 +16,7 @@ SRCS	=	src/Bureaucrat.cpp\
 OBJS	=	$(SRCS:%.cpp=%.o)
 
 .cpp.o	:
-	$(CC) $(CFLAGS)	-c $< -o $@
+	$(CC) $(CFLAGS) -I./include -c $< -o $@
 
 all		:	$(NAME)
 

@@ -6,11 +6,6 @@
 /*						OCCF					*/
 /************************************************/
 
-ShrubberyCreationForm::ShrubberyCreationForm(void)
-	:	Form("ShrubberyCreationForm", 145, 137), mTarget("") {
-		std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
-}
-
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & rhs)
 	:	Form("ShrubberyCreationForm", 145, 137), mTarget("") {
 		std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;

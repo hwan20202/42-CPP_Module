@@ -26,7 +26,7 @@ public:
 
 	class NoneExistForm
 	:	public std::exception {
-		public:
+	public:
 		virtual const char * what() const throw();
 	};
 };

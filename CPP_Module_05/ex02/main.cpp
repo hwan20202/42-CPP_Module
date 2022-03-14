@@ -183,7 +183,7 @@ void	testPresidentialPardonForm() {
 }
 
 
-int main() {
+int main(void) {
 	testShrubberyCreationForm();
 	std::cout << GRN;
 	testRobotomyRequestForm();

@@ -14,7 +14,7 @@ Data*		deserialize(uintptr_t raw) {
 	return reinterpret_cast<Data*>(raw);
 }
 
-int	main() {
+void	test(void) {
 	Data*		player = newData(std::string("jeokim"), 42.42, 24.24, 100, 0);
 	uintptr_t	uit;
 	Data*		copy;
@@ -37,5 +37,10 @@ int	main() {
 				<< NC << *copy << NC << std::endl;
 
 	delete player;
+}
+
+int		main() {
+	test();
+
 	return 0;
 }

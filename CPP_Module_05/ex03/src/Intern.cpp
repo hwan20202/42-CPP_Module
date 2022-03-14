@@ -5,6 +5,10 @@
 
 #include <iostream>
 
+/************************************************/
+/*						OCCF					*/
+/************************************************/
+
 Intern::Intern() {
 	formName[0] = S_TYPE;
 	formName[1] = R_TYPE;
@@ -21,6 +25,10 @@ Intern::~Intern() {
 	delete formRefer[1];
 	delete formRefer[2];
 }
+
+/************************************************/
+/*						others					*/
+/************************************************/
 
 Form*	Intern::makeForm(std::string const & name, std::string const & target) const {
 	for (int idx = 0; idx < FACTORY_SIZE; idx++) {

@@ -32,7 +32,7 @@ void decreaseBureaucrat(Bureaucrat& b) {
 	}
 }
 
-int main() {
+void test(void) {
 	Bureaucrat *b1;
 	Bureaucrat *b2;
 
@@ -61,6 +61,10 @@ int main() {
 
 	b1 = makeBureaucrat("b1", 151);
 	b2 = makeBureaucrat("b2", 0);
+}
+
+int	main(void) {
+	test();
 
 	return 0;
 }

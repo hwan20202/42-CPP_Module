@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iterator>
 #include <exception>
+#include <iostream>
 // #include <array>
 // #include <list>
 
@@ -15,7 +16,6 @@ public:
 template <typename T>
 typename T::iterator	easyfind(T t, int num) {
 	typename T::iterator it;
-
 	it = std::find(t.begin(), t.end(), num);
 	if (*it != num)
 		throw DoesNotFound();

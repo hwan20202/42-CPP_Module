@@ -9,13 +9,15 @@ private:
 	std::string	mTarget;
 	
 	PresidentialPardonForm(void);
+
+protected:
+	virtual void	action(void) const;
+
 public:
 	PresidentialPardonForm(std::string const &);
 	PresidentialPardonForm(PresidentialPardonForm const &);
 	PresidentialPardonForm& operator=(PresidentialPardonForm const &);
 	virtual ~PresidentialPardonForm();
-
-	virtual void	action(void) const;
 };
 
 #endif

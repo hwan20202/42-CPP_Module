@@ -3,7 +3,6 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <cstdlib>
-#include <exception>
 #include <iostream>
 
 Base*	generate(void) {
@@ -67,7 +66,7 @@ void	identify(Base& p) {
 		std::cout << "class C" << std::endl;
 }
 
-int	main(void) {
+void	test(void) {
 	Base*	b1;
 	Base*	b2;
 	Base*	b3;
@@ -84,6 +83,14 @@ int	main(void) {
 	identify(*b1);
 	identify(*b2);
 	identify(*b3);
+
+	delete b1;
+	delete b2;
+	delete b3;
+}
+
+int		main() {
+	test();
 
 	return 0;
 }

@@ -11,7 +11,7 @@ OBJS	=	Convert.o\
 			main.o
 
 .cpp.o	:
-	$(CC) $(CFLAGS) -I./include	-c $< -o $@
+	$(CC) $(CFLAGS)	-c $< -o $@
 
 all		:	$(NAME)
 
