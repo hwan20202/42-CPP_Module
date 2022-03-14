@@ -1,16 +1,16 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
-#include <exception>
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
+#include <iostream>
+#include <exception>
+ 
 #define NC "\e[0m"
 #define GRN "\e[0;32m"
 #define CYN "\e[0;36m"
-
 
 Bureaucrat* makeBureaucrat(std::string _name, int _grade) {
 	Bureaucrat* b;
@@ -23,7 +23,6 @@ Bureaucrat* makeBureaucrat(std::string _name, int _grade) {
 	};
 	return b;
 }
-
 
 void	testShrubberyCreationForm(Form* f) {
 	Bureaucrat	*b1;
@@ -137,7 +136,7 @@ void	testPresidentialPardonForm(Form* f) {
 }
 
 
-int main() {
+void test(void) {
 	Intern	someRandomIntern;
 	Form*	scf;
 	Form*	rrf;
@@ -156,5 +155,10 @@ int main() {
 	delete scf;
 	delete rrf;
 	delete ppf;
+}
+
+int	main() {
+	test();
+
 	return 0;
-}	
+}

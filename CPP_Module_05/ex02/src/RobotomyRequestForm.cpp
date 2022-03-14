@@ -6,12 +6,6 @@
 /*						OCCF					*/
 /************************************************/
 
-
-RobotomyRequestForm::RobotomyRequestForm(void)
-	:	Form("RobotomyRequestForm", 72, 45), mTarget("") {
-	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
-}
-
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & rhs)
 	:	Form("RobotomyRequestForm", 72, 45), mTarget("") {
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;

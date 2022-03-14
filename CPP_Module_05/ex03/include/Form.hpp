@@ -16,7 +16,9 @@ private:
 	Form&	operator=(Form const &);
 
 protected:
-	void	checkGradeRange(int const &) const;
+	void			checkGradeRange(int const &) const;
+	void			checkExecutable(Bureaucrat const &) const;
+	virtual void	action(void) const = 0;
 
 public:
 	Form(std::string, int, int);
@@ -29,9 +31,7 @@ public:
 
 	void			beSigned(Bureaucrat const &);
 
-	void			checkExecutable(Bureaucrat const &) const;
 	void			execute(Bureaucrat const &) const;
-	virtual void	action(void) const = 0;
 	virtual Form*	create(std::string const &) const = 0;
 
 

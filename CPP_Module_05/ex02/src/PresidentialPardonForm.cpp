@@ -5,11 +5,6 @@
 /*						OCCF					*/
 /************************************************/
 
-PresidentialPardonForm::PresidentialPardonForm(void)
-	:	Form("PresidentialPardonForm", 25, 5), mTarget("") {
-	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
-}
-
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & rhs)
 	:	Form("PresidentialPardonForm", 25, 5), mTarget("") {
 	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;

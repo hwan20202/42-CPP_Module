@@ -9,10 +9,9 @@ int	main() {
 	std::list<int> arr(5, 0);
 	std::list<int>::iterator it;
 
-
 	*std::begin(arr) = 3;
 	try {
-		it = easyfind(arr, 4);
+		it = easyfind(arr, 3);
 		std::cout << *it << std::endl;
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;

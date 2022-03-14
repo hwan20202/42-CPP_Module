@@ -47,7 +47,6 @@ public:
 
 	Convert(std::string const &);
 	~Convert();
-
 };
 
 std::ostream& operator<<(std::ostream&, Convert const &);

@@ -9,13 +9,15 @@ private:
 	std::string	mTarget;
 
 	RobotomyRequestForm(void);
+
+protected:
+	virtual void	action(void) const;
+
 public:
 	RobotomyRequestForm(std::string const &);
 	RobotomyRequestForm(RobotomyRequestForm const &);
 	RobotomyRequestForm& operator=(RobotomyRequestForm const &);
 	virtual ~RobotomyRequestForm();
-
-	virtual void	action(void) const;
 };
 
 #endif

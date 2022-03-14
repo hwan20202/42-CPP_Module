@@ -7,8 +7,8 @@
 template <typename T>
 class Array {
 private:
-	T* mData;
 	unsigned int const	mSize;
+	T* mData;
 public:
 	Array()
 		:	mSize(0), mData(new T[0]) {
@@ -30,7 +30,7 @@ public:
 		delete[] mData;
 		*const_cast<unsigned int*>(&mSize) = rhs.mSize;
 		mData = new T[mSize];
-		for (int idx = 0; idx < mSize; idx++) {
+		for (unsigned int idx = 0; idx < *const_cast<unsigned int*>(&mSize); idx++) {
 			mData[idx] = rhs.mData[idx];
 		}
 		return *this;
@@ -41,11 +41,17 @@ public:
 		delete[] mData;
 	}
 
-	unsigned int	size(void) const {
+	unsigned int const&	size(void) const {
 		return mSize;
 	}
 
-	T&	operator[](unsigned int u) const {
+	T&	operator[](unsigned int u) {
+		if (mSize <= u)
+			throw std::out_of_range("Out of Range");
+		return mData[u];
+	}
+
+	T const &	operator[](unsigned int u) const {
 		if (mSize <= u)
 			throw std::out_of_range("Out of Range");
 		return mData[u];

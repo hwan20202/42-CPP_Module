@@ -12,7 +12,7 @@ private:
 	int	grade;
 
 	Bureaucrat(void);
-	
+
 public:
 	static int const	topGrade = 1;
 	static int const	bottomGrade = 150;

@@ -11,7 +11,7 @@ void	test_constructor(void) {
 	Array<double>		empty2(0);		//empty array
 	Array<std::string>	normal(3);
 	Array<int> 			outOfRange(-1);	//underflow
-	// Array<int> arr2(4294967296);		//overflow(warning case)
+	// Array<int> outOfRange2(4294967296);		//overflow(warning case)
 }
 
 void	test_deepcopy(void) {

@@ -8,6 +8,9 @@ class RobotomyRequestForm: public Form {
 private:
 	std::string	mTarget;
 
+protected:
+	virtual void	action(void) const;
+
 public:
 	RobotomyRequestForm(void);
 	RobotomyRequestForm(std::string const &);
@@ -15,7 +18,6 @@ public:
 	RobotomyRequestForm& operator=(RobotomyRequestForm const &);
 	virtual ~RobotomyRequestForm();
 
-	virtual void	action(void) const;
 	virtual Form*	create(std::string const &) const;
 };
 

@@ -5,6 +5,9 @@ class ShrubberyCreationForm: public Form
 private:
 	std::string	const	mTarget;
 
+protected:
+	virtual void		action(void) const;
+
 public:
 	ShrubberyCreationForm(void);
 	ShrubberyCreationForm(std::string const &);
@@ -12,7 +15,6 @@ public:
 	ShrubberyCreationForm& operator=(ShrubberyCreationForm const &);
 	virtual ~ShrubberyCreationForm();
 
-	virtual void		action(void) const;
 	virtual Form*	create(std::string const &) const;
 
 	class FileOpenFailed

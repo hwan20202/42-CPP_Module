@@ -7,7 +7,10 @@
 class PresidentialPardonForm: public Form {
 private:
 	std::string	mTarget;
-	
+
+protected:
+	virtual void	action(void) const;
+
 public:
 	PresidentialPardonForm(void);
 	PresidentialPardonForm(std::string const &);
@@ -15,7 +18,6 @@ public:
 	PresidentialPardonForm& operator=(PresidentialPardonForm const &);
 	virtual ~PresidentialPardonForm();
 
-	virtual void	action(void) const;
 	virtual Form*	create(std::string const &) const;
 };
 

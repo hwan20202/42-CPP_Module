@@ -1,12 +1,11 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
-#include <cstddef>
 #include <typeinfo>
 #include <iostream>
 
 template <typename T>
-void	iter(T* p, size_t n, void (*f)(T)) {
+void	iter(T* p, size_t n, void (*f)(T const &)) {
 	if (!p || !n || !f)
 		return ;
 	std::cout << "iter < " << typeid(T).name() << " > executed" << std::endl;
@@ -17,7 +16,7 @@ void	iter(T* p, size_t n, void (*f)(T)) {
 }
 
 template <typename T>
-void	func(T param) {
+void	func(T const & param) {
 	std::cout << "func result : " << param << std::endl;
 }
 

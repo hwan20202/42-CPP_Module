@@ -40,29 +40,6 @@ void		Form::beSigned(Bureaucrat const & bur) {
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void	Form::checkGradeRange(int const & grade) const {
-	if (grade < Bureaucrat::topGrade)
-		throw Bureaucrat::GradeTooHighException();
-	else if (grade > Bureaucrat::bottomGrade)
-		throw Bureaucrat::GradeTooLowException();	
-}
-
-void		Form::checkExecutable(Bureaucrat const & b) const {
-	if (!mIsSigned)
-		throw NoneSignedException();
-	if (mGradeToExecute < b.getGrade())
-		throw Bureaucrat::GradeTooLowException();
-}
-
-void		Form::execute(Bureaucrat const & b) const {
-	checkExecutable(b);
-	action();
-}
-
-/************************************************/
-/*						getter					*/
-/************************************************/
-
 std::string	Form::getName(void) const {
 	return mName;
 }
@@ -77,4 +54,27 @@ int			Form::getGradeToSign(void) const {
 
 int			Form::getGradeToExecute(void) const {
 	return mGradeToExecute;
+}
+
+void		Form::execute(Bureaucrat const & b) const {
+	checkExecutable(b);
+	action();
+}
+
+/************************************************/
+/*				protected method				*/
+/************************************************/
+
+void	Form::checkGradeRange(int const & grade) const {
+	if (grade < Bureaucrat::topGrade)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > Bureaucrat::bottomGrade)
+		throw Bureaucrat::GradeTooLowException();	
+}
+
+void		Form::checkExecutable(Bureaucrat const & b) const {
+	if (!mIsSigned)
+		throw NoneSignedException();
+	if (mGradeToExecute < b.getGrade())
+		throw Bureaucrat::GradeTooLowException();
 }

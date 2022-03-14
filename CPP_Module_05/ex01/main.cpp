@@ -27,7 +27,7 @@ Form* makeForm(std::string _name, int _gradeToSign, int _gradeToExecute) {
 	return f;
 }
 
-int main() {
+void test(void) {
 	Bureaucrat	*b1;
 	Bureaucrat	*b2;
 	Form		*f1;
@@ -56,5 +56,10 @@ int main() {
 		delete f2;
 	if (f3)
 		delete f3;
+}
+
+int	main(void) {
+	test();
+
 	return 0;
-}	
+}
