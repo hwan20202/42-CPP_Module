@@ -18,6 +18,9 @@ int main() {
 	return 0;
 }
 
+void	test_copy() {
+	
+}
 
 void	test_error_case() {
 	unsigned int	_short;
