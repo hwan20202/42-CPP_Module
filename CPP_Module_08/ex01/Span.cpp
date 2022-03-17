@@ -43,7 +43,7 @@ unsigned int Span::shortestSpan() const {
 	std::vector<int> tmp_data(data.size());
 
 	if (data.size() <= 1)
-		throw std::out_of_range("");
+		throw std::out_of_range("Out of range");
 	std::adjacent_difference(data.begin(), data.end(), tmp_data.begin());
 	std::transform(tmp_data.begin(), tmp_data.end(), tmp_data.begin(), static_cast<int (*)(int)>(&std::abs));
 	return *(minmax(tmp_data.begin() + 1, tmp_data.end()).first);
@@ -53,7 +53,7 @@ unsigned int Span::longestSpan() const {
 	std::vector<int> tmp_data(data.size());
 
 	if (data.size() <= 1)
-		throw std::out_of_range("");
+		throw std::out_of_range("Out of range");
 	std::adjacent_difference(data.begin(), data.end(), tmp_data.begin());
 	std::transform(tmp_data.begin(), tmp_data.end(), tmp_data.begin(), static_cast<int (*)(int)>(&std::abs));
 	return *(minmax(tmp_data.begin() + 1, tmp_data.end()).second);
