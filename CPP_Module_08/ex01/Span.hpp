@@ -1,34 +1,42 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <vector>
-#include <utility>
+#include <set>
+#include <exception>
 
 class Span {
 private:
-	std::vector<int> data;
+	std::multiset<int>	data;
+	unsigned int	max_size;
+
+	class OutOfSize : public std::exception {
+	public:
+		const char *what() const throw();
+	};
+	class SpanDoesNotExist : public std::exception {
+	public:
+		const char *what() const throw();
+	};
+
 	Span();
-
-	std::pair<std::vector<int>::iterator,std::vector<int>::iterator> minmax(
-		std::vector<int>::iterator first, std::vector<int>::iterator last) const;
-
 public:
 	Span(unsigned int);
+	Span(Span const &);
+	Span& operator=(Span const &);
 	~Span();
 
 	void	addNumber(int);
-	unsigned int shortestSpan() const;
-	unsigned int longestSpan() const;
+	int		shortestSpan() const;
+	int		longestSpan() const;
 
 	template <typename T>
 	void	addNumber(T begin, T end) {
 	for (T it = begin; it != end; it++) {
-		if (data.size() > data.max_size())
-			throw std::out_of_range("Out of range");
-		data.push_back(*it);
-	}
-}
-
+		data.insert(*it);
+		if (data.size() > max_size)
+			throw OutOfSize();
+		}
+	};
 };
 
 #endif

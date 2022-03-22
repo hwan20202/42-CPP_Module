@@ -18,7 +18,7 @@ public:
 		return this->c.end();
 	}
 
-	MutantStack<T>() {
+	MutantStack() {
 		std::cout << "MutantStack default constructor called" << std::endl;
 	}
 
@@ -34,7 +34,7 @@ public:
 		return *this;
 	}
 
-	~MutantStack<T>() {
+	~MutantStack() {
 		std::cout << "MutantStack destructor called" << std::endl;
 	}
 };

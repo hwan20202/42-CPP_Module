@@ -1,60 +1,49 @@
 #include "Span.hpp"
-
 #include <iostream>
 #include <vector>
 #include <exception>
 #include <numeric>
-#include <algorithm>
-#include <cstdlib>
 
-Span::Span(unsigned int n) {
-	data.reserve(n);
-
+Span::Span(unsigned int n) : max_size(n) {
 	std::cout << "Span constructor called" << std::endl;
 }
 
-Span::~Span() {
-
+Span::Span(Span const & rhs) : max_size(rhs.max_size) {
+	std::cout << "Span copy constructor called" << std::endl;
+	*this = rhs;
 }
 
-std::pair<std::vector<int>::iterator, std::vector<int>::iterator> Span::minmax(
-	std::vector<int>::iterator first, std::vector<int>::iterator last) const {
-	std::vector<int>::iterator min = first;
-	std::vector<int>::iterator max = first;
+Span&	Span::operator=(Span const & rhs) {
+	std::cout << "Span assignation operator called" << std::endl;
+	if (this != &rhs)
+		data = rhs.data;
+	return *this;
+}
 
-	if (first > last)
-		throw std::out_of_range("first iterator is later than last iterator");
-	for (std::vector<int>::iterator it = first + 1; it != last; it++) {
-		if (*it < *min)
-			min = it;
-		if (*it > *max)
-			max = it;
-	}
-	return std::pair<std::vector<int>::iterator, std::vector<int>::iterator>(min, max);
+Span::~Span() {
+	std::cout << "Span destructor called" << std::endl;
 }
 
 void	Span::addNumber(int num) {
-	if (data.size() >= data.max_size())
-		throw std::out_of_range("Out of range");
-	data.push_back(num);
+	data.insert(num);
+	if (data.size() > max_size)
+		throw OutOfSize();
 }
 
-unsigned int Span::shortestSpan() const {
-	std::vector<int> tmp_data(data.size());
+int Span::shortestSpan() const {
+	std::vector<int> v(data.size());
+	std::set<int> s;
 
 	if (data.size() <= 1)
-		throw std::out_of_range("Out of range");
-	std::adjacent_difference(data.begin(), data.end(), tmp_data.begin());
-	std::transform(tmp_data.begin(), tmp_data.end(), tmp_data.begin(), static_cast<int (*)(int)>(&std::abs));
-	return *(minmax(tmp_data.begin() + 1, tmp_data.end()).first);
+		throw SpanDoesNotExist();
+	std::adjacent_difference(data.begin(), data.end(), v.begin());
+	for (std::vector<int>::iterator it = ++v.begin(); it != v.end(); it++)
+		s.insert(*it);
+	return *s.begin();
 }
 
-unsigned int Span::longestSpan() const {
-	std::vector<int> tmp_data(data.size());
-
+int Span::longestSpan() const {
 	if (data.size() <= 1)
-		throw std::out_of_range("Out of range");
-	std::adjacent_difference(data.begin(), data.end(), tmp_data.begin());
-	std::transform(tmp_data.begin(), tmp_data.end(), tmp_data.begin(), static_cast<int (*)(int)>(&std::abs));
-	return *(minmax(tmp_data.begin() + 1, tmp_data.end()).second);
+		throw SpanDoesNotExist();
+	return *data.rbegin() - *data.begin();
 }

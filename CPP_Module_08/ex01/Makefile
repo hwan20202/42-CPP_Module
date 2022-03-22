@@ -1,8 +1,14 @@
-NAME	=	swap
+NAME	=	span
 CC		=	clang++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	main.cpp
-OBJS	=	main.o
+SRCS	=	main.cpp\
+			Span.cpp\
+			OutOfSize.cpp\
+			SpanDoesNotExist.cpp
+OBJS	=	main.o\
+			Span.o\
+			OutOfSize.o\
+			SpanDoesNotExist.o
 
 .cpp.o	:
 	$(CC) $(CFLAGS)	-c $< -o $@

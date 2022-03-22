@@ -3,7 +3,6 @@
 
 #include <algorithm>
 #include <iterator>
-#include <iostream>
 
 #include "DoesNotFound.hpp"
 
@@ -12,7 +11,6 @@ typename T::iterator	easyfind(T t, int num) {
 	typename T::iterator it = std::find(t.begin(), t.end(), num);
 	if (*it != num)
 		throw DoesNotFound();
-	std::cout << "it = " << *it << std::endl;
 	return it;
 }
 
